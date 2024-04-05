@@ -7,7 +7,7 @@ const Home = () => {
       fontSize:"45px",
       margin:"85px"
     }}>
-      Hello Boss, Valo To???
+      Hello khanki, Valo To??? 
     </div>
   )
 }
