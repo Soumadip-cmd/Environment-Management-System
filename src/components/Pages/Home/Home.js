@@ -9,7 +9,7 @@ const Home = () => {
         height:"95px"
       }}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/home">
             <img src={logo} alt="Logo" style={{ height: "70px", width: "149px" }} />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@ const Home = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/" style={{ color: "white", marginRight: "60px" }}>Home</Link>
+                <Link className="nav-link" to="/home" style={{ color: "white", marginRight: "60px" }}>Home</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/aboutus" style={{ color: "white", marginRight: "60px" }}>About Us</Link>
