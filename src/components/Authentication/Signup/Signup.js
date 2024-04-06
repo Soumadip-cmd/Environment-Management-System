@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
+
 const Signup = () => {
   return (
     <>
@@ -36,7 +37,7 @@ const Signup = () => {
               />
               <i className="input-icon uil uil-lock-alt"></i>
             </div>
-            <Link to="/" className="btn mt-4">
+            <Link to="/login" className="btn mt-4">
               Register
             </Link>
           </div>
