@@ -45,7 +45,7 @@ const Login = () => {
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
                           <Link
-                            to="/home"
+                            to="/"
                             className="btn mt-4"
                           >
                             Login

@@ -18,7 +18,7 @@ const Home = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/home" style={{ color: "white", marginRight: "60px" }}>Home</Link>
+                <Link className="nav-link" to="/" style={{ color: "white", marginRight: "60px" }}>Home</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/aboutus" style={{ color: "white", marginRight: "60px" }}>About Us</Link>

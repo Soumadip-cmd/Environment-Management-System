@@ -23,12 +23,12 @@ function App() {
       
       <Router>
       <Switch>
-          <Route exact path="/login">
-          <Login/>
+         <Route exact path="/">
+            <Home/>
           </Route>
 
-          <Route exact path="/home">
-            <Home/>
+          <Route exact path="/login">
+          <Login/>
           </Route>
 
           <Route exact path="/aboutus">
