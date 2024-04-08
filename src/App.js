@@ -1,11 +1,6 @@
 import React from "react";
 import Login from "./components/Authentication/Login/Login";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Pages/Home/Home";
 import AboutUs from "./components/Pages/About Us/AboutUs";
 import Carrier from "./components/Pages/Carrier/Carrier";
@@ -17,59 +12,50 @@ import RecycleInitiative from "./components/Pages/Our Service/Recycle Initiative
 import WasteManegment from "./components/Pages/Our Service/Waste Manegment/WasteManegment";
 import WaterManegment from "./components/Pages/Our Service/Water Manegment/WaterManegment";
 import AirQuality from "./components/Pages/Our Service/Air Quality/AirQuality";
+import Blog from "./components/Pages/Blog/Blog";
+import GarbageManagement from "./components/Pages/Garbage/GarbageManagement";
 function App() {
   return (
     <div>
-      
       <Router>
-      <Switch>
-         <Route exact path="/home">
-            <Home/>
+        <Switch>
+          <Route exact path="/home">
+            <Home />
           </Route>
 
           <Route exact path="/">
-          <Login/>
+            <Login />
           </Route>
 
           <Route exact path="/aboutus">
-            <AboutUs/>
+            <AboutUs />
           </Route>
 
           <Route exact path="/carrier">
-            <Carrier/>
+            <Carrier />
           </Route>
 
           <Route exact path="/contact">
-            <Contact/>
-          </Route>
-
-          <Route exact path="/climate">
-            <ClimateChange/>
+            <Contact />
           </Route>
 
           <Route exact path="/community">
-            <CommunityRewards/>
+            <CommunityRewards />
+          </Route>
+          <Route exact path="/garbage">
+            <GarbageManagement />
           </Route>
 
-          <Route exact path="/landfill">
-            <LandfilManegemnt/>
-          </Route>
-
-          <Route exact path="/recycling">
-            <RecycleInitiative/>
-          </Route>
-
-          <Route exact path="/wastemanegment">
-            <WasteManegment/>
+          <Route exact path="/blog">
+            <Blog />
           </Route>
 
           <Route exact path="/waterleakage">
-            <WaterManegment/>
+            <WaterManegment />
           </Route>
 
-
           <Route exact path="/airquality">
-            <AirQuality/>
+            <AirQuality />
           </Route>
         </Switch>
       </Router>

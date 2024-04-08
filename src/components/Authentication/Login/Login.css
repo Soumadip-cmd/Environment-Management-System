@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-body{
+.auth-body{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 300;
 	line-height: 1.7;
 	color: #ffeba7;
-	background-color: #616267;
+	background-image: url(../../../../public/loginBg.png);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 a:hover {
 	text-decoration: none;
@@ -26,6 +30,8 @@ h4 {
 h6 span{
   padding: 0 20px;
   font-weight: 700;
+  color: #000000;
+  cursor: pointer;
 }
 .section{
   position: relative;
@@ -50,7 +56,7 @@ display: none;
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #ffeba7;
+  background-color: #1c1603;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
