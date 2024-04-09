@@ -3,6 +3,11 @@
     padding-right: 49px;
     width: auto;
 }
+.offcanvas.show {
+    visibility: visible;
+    transform: translateX(0%);
+  }
+  
 .offcanvas.show:not(.hiding), .offcanvas.showing {
     transform: none;
     width: auto;

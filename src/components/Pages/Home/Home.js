@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
+  
   return (
     <>
       <div style={{ height: "56px" }}>
@@ -14,7 +15,7 @@ const Home = () => {
               </span>
             </Link>
             <button
-              className="navbar-toggler"
+              className="navbar-toggler "
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasDarkNavbar"
@@ -25,7 +26,7 @@ const Home = () => {
             </button>
 
             <div
-              className="offcanvas offcanvas-start text-bg-dark bg-dark"
+              className="offcanvas offcanvas-start text-bg-dark bg-dark "
               tabIndex="-1"
               id="offcanvasDarkNavbar"
               aria-labelledby="offcanvasDarkNavbarLabel"
@@ -237,6 +238,7 @@ const Home = () => {
                 </ul>
               </div>
             </div>
+            
           </div>
         </nav>
       </div>
