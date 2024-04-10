@@ -1,13 +1,16 @@
+import React from "react";
+import "./GarbageManegment.css";
+import GarbageHeader from "./GarbageHeader";
 
-import React from 'react';
-import './GarbageManegment.css'
+
 const GarbageManagement = () => {
-
-  return(
+  return (
     <>
-
+      <div className="">
+        <GarbageHeader/>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default GarbageManagement
+export default GarbageManagement;
