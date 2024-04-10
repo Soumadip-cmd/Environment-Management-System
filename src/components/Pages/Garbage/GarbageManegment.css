@@ -38,3 +38,34 @@
     word-spacing: 0.2em;
     letter-spacing: .012em;
 }
+.bgbtn-pos{
+    position: absolute;
+    right: 14px;
+    top: 218px;
+}
+.perfect{
+    background: #ffffffa3;
+    border: none;
+    border-radius: 3px;
+    color: black;
+}
+.img-style{
+    background: white;
+    border-radius: 5px;
+    position: relative;
+}
+.profile-pos{
+    position: absolute;
+    top: 173px;
+    left: 37px;
+    color: white;
+}
+.extra-pos{
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+}
+.garbage-body{
+    background-color:rgb(222 218 218);
+    height: 100vh;
+}
