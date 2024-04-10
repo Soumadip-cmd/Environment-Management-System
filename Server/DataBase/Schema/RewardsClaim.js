@@ -12,7 +12,7 @@ const RewardsClaimSchema = new mongoose.Schema({
   user_email: {
     type: String,
     required: true,
-    unique: true // Assuming email addresses should be unique
+    unique: true 
   },
   user_sex: {
     type: String,
@@ -38,10 +38,7 @@ const RewardsClaimSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  user_phone: {
-    type: String,
-    required: true
-  },
+
   user_liveaddress: {
     type: String,
     required: true
