@@ -6,7 +6,7 @@ const CommunityRewards = () => {
   const handleCancel = () => {
     setShowForm(false);
   };
-
+  let [user, setUser] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     user_name: "",
@@ -18,7 +18,7 @@ const CommunityRewards = () => {
     user_city: "",
     user_state: "",
     user_district: "",
-    user_phone: "",
+   
     user_liveaddress: "",
     user_emergencyphneno: "",
   });
@@ -49,14 +49,25 @@ const CommunityRewards = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send formData to the server using axios
-      const response = await axios.post('http://localhost:8080/rewards-claim', formData);
-      console.log('Response:', response.data);
-
-      // Reset form data after successful submission
+      const formDataToSend = new FormData(); 
+  
+      
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
+      }
+  
+      
+     
+      const response = await axios.post('http://localhost:8080/rewards-claim', formDataToSend, {
+        
+      });
+  
+      // console.log('Response:', response.data);
+      // console.log(response.status)
+      
       setFormData({
         user_name: "",
-        user_docx: null,
+        user_docx: "",
         user_email: "",
         user_sex: "",
         user_address: "",
@@ -64,22 +75,42 @@ const CommunityRewards = () => {
         user_city: "",
         user_state: "",
         user_district: "",
-        user_phone: "",
+       
         user_liveaddress: "",
         user_emergencyphneno: "",
       });
-
+  
       setShowForm(false);
-
-      if (response.status === "true") {
+  
+      if (response.status === 201) { 
         console.log("Form Submitted Successfully!");
         alert("Reward Claimed Successfully! Wait for approval :-)");
+  
+        // Add current form data to user state
+        let currentUserFormData = {
+          user_name: formData.user_name,
+          user_email: formData.user_email,
+          user_sex: formData.user_sex,
+          user_address: formData.user_address,
+          user_zip: formData.user_zip,
+          user_city: formData.user_city,
+          user_state: formData.user_state,
+          user_district: formData.user_district,
+          user_phone: formData.user_phone,
+          user_birthday: formData.user_birthday,
+          user_docx: formData.user_docx,
+          user_emergencyphneno: formData.user_emergencyphneno,
+        };
+        let oldUserData = [...user, currentUserFormData];
+        setUser(oldUserData);
       }
     } catch (error) {
       console.error('Error:', error);
       alert("Error submitting form. Please try again.");
     }
   };
+  
+  
 
     return (
       <div className="container mt-5">
@@ -92,7 +123,7 @@ const CommunityRewards = () => {
             Cliam Your Rewards
           </button>
           {showForm && (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
             <div className="row">
                 <div className="col-sm-12 col-md-3 col-lg-3">
                  
@@ -115,11 +146,14 @@ const CommunityRewards = () => {
                     <input
                       type="file"
                       className="form-control"
-                      id="incidentPhoto"
+                      id="user_docx"
                       name="user_docx"
+                     
+                      accept=".docx,.pdf,.png,.jpg,.jpeg,.gif"
                       onChange={handleChange}
                       required
                     />
+
                   </div>
                 </div>
                 <div className="col-sm-12 col-md-3 col-lg-3">
