@@ -160,7 +160,7 @@ const Home = () => {
                       </li>
                       <li>
                         <Link className="dropdown-item" to="/waterleakage">
-                          Water Leakage Management
+                          Water Management
                         </Link>
                       </li>
                     </ul>

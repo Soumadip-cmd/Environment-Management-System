@@ -1,0 +1,40 @@
+.srch-style{
+    border-radius: 20px;
+    background: #794242;
+    border: none;
+    width: 555px;
+    
+}
+.srch-style::placeholder{
+    color: white;
+    
+}
+.srch-style:focus{
+    background: #794242;
+    color: white;
+    box-shadow: none;
+    outline: none;
+    
+
+}
+.srch-style::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    /* color: white; Change the color here */
+}
+
+@media (min-width: 990px) and (max-width: 1090px) {
+    .srch-style {
+        width: 282px;
+    }
+  }
+.search-icon{
+    position: absolute;
+    right: 0;
+    top: 1px;
+    cursor: pointer;
+}
+.extra1{
+    word-spacing: 0.2em;
+    letter-spacing: .012em;
+}
