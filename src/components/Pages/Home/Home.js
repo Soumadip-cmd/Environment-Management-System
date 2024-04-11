@@ -9,10 +9,9 @@ const Home = () => {
       <div style={{ height: "56px" }}>
         <nav className="navbar navbar-dark bg-dark fixed-top">
           <div className="container-fluid">
-            <Link className="navbar-brand align-items-center" to="/home">
-              <span style={{ color: "brown" }}>
-                Environment<span style={{ color: "green" }}>Management</span>
-              </span>
+            <Link className="navbar-brand align-items-center mx-2" to="/home">
+              <img src="nav-logo.png" height={35} alt="Logo"/>
+              
             </Link>
             <button
               className="navbar-toggler "
