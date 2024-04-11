@@ -74,7 +74,7 @@ const AirQuality = () => {
   };
 
   const getAirQualityStatus = (iaqi) => {
-    let airQuality = 'Good';
+    let airQuality = 'very good';
 
     for (const key in iaqi) {
       if (iaqi.hasOwnProperty(key)) {

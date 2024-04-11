@@ -88,7 +88,7 @@
 }
 
 .air-quality-input .location-btn:hover {
-  background: #5c636a;
+  background: #327ac2;
 }
 
 .air-quality-data {
@@ -141,7 +141,7 @@
   padding: 18px 16px;
   list-style: none;
   width: calc(100% / 5);
-  background: #6C757D; /* Dark brown shade */
+  background: #c06114; /* Dark brown shade */
   border-radius: 5px;
 }
 
