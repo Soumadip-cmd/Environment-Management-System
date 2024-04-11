@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AirQuality.css';
 
-
-
 const AirQuality = () => {
   const [cityInput, setCityInput] = useState('');
   const [currentAirQuality, setCurrentAirQuality] = useState(null);
@@ -28,8 +26,8 @@ const AirQuality = () => {
       if (data && data.status === "ok") {
         setCurrentAirQuality(data.data);
         setAirQualityForecast(data.data.forecast.daily);
-        setErrorAlert('');
-        setAirQualityStatus(getAirQualityStatus(data.data.iaqi));
+        setErrorAlert(''); 
+        setAirQualityStatus(getAirQualityStatus(data.data.iaqi)); 
       } else {
         console.error('Error: No air quality data found for this location.');
         setErrorAlert("Error: No air quality data found for this location.");
@@ -76,7 +74,7 @@ const AirQuality = () => {
   };
 
   const getAirQualityStatus = (iaqi) => {
-    let airQuality = 'very good';
+    let airQuality = 'Good';
 
     for (const key in iaqi) {
       if (iaqi.hasOwnProperty(key)) {
@@ -96,16 +94,20 @@ const AirQuality = () => {
       <h1 className='airheading'>Air Quality Dashboard</h1>
       <div className="container" id="main-container">
         <div className="air-quality-input">
-          <input
-            type="text"
-            value={cityInput}
-            onChange={handleCityInputChange}
-            onKeyPress={handleKeyPress}
-            placeholder="E.g., Jadavpur, Kolkata, India"
-          />
-          <button onClick={handleSearchButtonClick} className="search-btn">Search</button>
-          <div className="separator"></div>
-          <button type="button" className="btn btn-success" onClick={handleGeoLocation}>Live Location</button>
+         
+            <>
+              <input
+                type="text"
+                value={cityInput}
+                onChange={handleCityInputChange}
+                onKeyPress={handleKeyPress}
+                placeholder="E.g., Jadavpur, Kolkata, India"
+              />
+              <button onClick={handleSearchButtonClick} className="search-btn">Search</button>
+              <div className="separator">or</div>
+              <button type="button" className="btn btn-success" onClick={handleGeoLocation}>Live Location</button>
+            </>
+          
         </div>
         <div className="air-quality-data">
           {errorAlert && <p>{errorAlert}</p>}
@@ -127,21 +129,44 @@ const AirQuality = () => {
                   </div>
                 </>
               )}
+              <div className="days-air-quality-forecast">
+                <h2>5-Day Air Quality Forecast</h2>
+                <ul className="air-quality-cards o3">
+                  <h2>O3</h2>
+                  {airQualityForecast && airQualityForecast.o3 && airQualityForecast.o3.map((forecast, index) => (
+                    <li key={index} className="card">
+                      <h3>{forecast.day}</h3>
+                      <h6>Maximum O3: {forecast.max}</h6>
+                      <h6>Minimum O3: {forecast.min}</h6>
+                      <h6>Average O3: {forecast.avg}</h6>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="air-quality-cards pm10">
+                  <h2>PM10</h2>
+                  {airQualityForecast && airQualityForecast.pm10 && airQualityForecast.pm10.map((forecast, index) => (
+                    <li key={index} className="card">
+                      <h3>{forecast.day}</h3>
+                      <h6>Maximum PM10: {forecast.max}</h6>
+                      <h6>Minimum PM10: {forecast.min}</h6>
+                      <h6>Average PM10: {forecast.avg}</h6>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="air-quality-cards pm25">
+                  <h2>PM25</h2>
+                  {airQualityForecast && airQualityForecast.pm25 && airQualityForecast.pm25.map((forecast, index) => (
+                    <li key={index} className="card">
+                      <h3>{forecast.day}</h3>
+                      <h6>Maximum PM25: {forecast.max}</h6>
+                      <h6>Minimum PM25: {forecast.min}</h6>
+                      <h6>Average PM25: {forecast.avg}</h6>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           )}
-          <div className="days-air-quality-forecast">
-            <h2>5-Day Air Quality Forecast</h2>
-            <div className="air-quality-cards">
-              {airQualityForecast && airQualityForecast.map((forecastDay, index) => (
-                <div key={index} className="card">
-                  <h3>{forecastDay.day}</h3>
-                  <h6>O2: {forecastDay.o2} µg/m³</h6>
-                  <h6>PM10: {forecastDay.pm10} µg/m³</h6>
-                  <h6>PM25: {forecastDay.pm25} µg/m³</h6>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
