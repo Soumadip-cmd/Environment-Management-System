@@ -9,7 +9,8 @@ import CommunityRewards from "./components/Pages/Our Service/Community Rewards/C
 import WaterManegment from "./components/Pages/Our Service/Water Manegment/WaterManegment";
 import AirQuality from "./components/Pages/Our Service/Air Quality/AirQuality";
 import Blog from "./components/Pages/Blog/Blog";
-import GarbageManagement from "./components/Pages/Garbage/GarbageManagement";
+import GarbageManagement from "./components/Pages/Our Service/Garbage/GarbageManagement";
+
 function App() {
   return (
     <div>
@@ -39,7 +40,7 @@ function App() {
             <CommunityRewards />
           </Route>
           <Route exact path="/garbage">
-            <GarbageManagement />
+            <GarbageManagement/>
           </Route>
 
           <Route exact path="/blog">

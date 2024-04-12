@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.air-quality {
+  background: linear-gradient(45deg, #ffffff, #f3f3f3, #ffffff, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.airheading {
+  background: linear-gradient(to right, transparent 0%, #4a1e11 20%, #e01414 80%, transparent 100%);
+  font-size: 2.75rem;
+  text-align: center;
+  padding: 18px 0;
+  color: #fff;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 30px;
+  align-items: center;
+}
+
+.air-quality-input {
+  width: 550px;
+}
+
+.city-input-container {
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.air-quality-input input {
+  height: 46px;
+  width: 100%;
+  outline: none;
+  font-size: 1.07rem;
+  padding: 0 17px;
+  margin: 10px 0 20px 0;
+  border-radius: 4px;
+  border: 1px solid #632a19;
+  transition: border-color 0.3s ease;
+}
+
+.air-quality-input input:focus {
+  padding: 0 16px;
+  border-color: #5D4037;
+}
+
+.air-quality-input .separator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.air-quality-input .separator::before {
+  content: "or";
+  color: #020235;
+  font-size: 1.18rem;
+  padding: 0 15px;
+  margin-top: -4px;
+  background: #fff;
+}
+
+.air-quality-input button {
+  width: 100%;
+  padding: 12px 0;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #4a1e11;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.air-quality-input button:hover {
+  background: #e01414;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+.air-quality-input .location-btn {
+  background: #6C757D;
+}
+
+.air-quality-input .location-btn:hover {
+  background: #327ac2;
+}
+
+.air-quality-data {
+  width: 100%;
+}
+
+.current-air-quality {
+  color: #fff;
+  background: #ca3e17;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
+}
+
+.current-air-quality h2 {
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.details,
+.air-quality-status {
+  margin-bottom: 15px;
+}
+
+.details h6,
+.air-quality-status p {
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.days-air-quality-forecast {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.days-air-quality-forecast h2 {
+  margin: 20px 0;
+  font-size: 1.5rem;
+}
+
+.air-quality-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  color: #ffffff;
+  padding: 18px 16px;
+  list-style: none;
+  width: calc(100% / 5);
+  background: #e68906;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Increased shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.location-btn{
+  justify-content: center;
+  align-items: center;
+}
