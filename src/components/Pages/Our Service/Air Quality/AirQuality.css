@@ -1,19 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .air-quality {
-  background: #8B4513; /* Saddle Brown */
+  background: linear-gradient(45deg, #ffffff, #f3f3f3, #ffffff, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .airheading {
-  background: #5D4037; /* Dark brown shade */
-  font-size: 1.75rem;
+  background: linear-gradient(to right, transparent 0%, #4a1e11 20%, #e01414 80%, transparent 100%);
+  font-size: 2.75rem;
   text-align: center;
   padding: 18px 0;
   color: #fff;
@@ -31,6 +42,11 @@
   width: 550px;
 }
 
+.city-input-container {
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .air-quality-input input {
   height: 46px;
   width: 100%;
@@ -39,19 +55,20 @@
   padding: 0 17px;
   margin: 10px 0 20px 0;
   border-radius: 4px;
-  border: 1px solid #8B4513; /* Saddle Brown */
+  border: 1px solid #632a19;
+  transition: border-color 0.3s ease;
 }
 
 .air-quality-input input:focus {
   padding: 0 16px;
-  border: 2px solid #5D4037; /* Dark brown shade */
+  border-color: #5D4037;
 }
 
 .air-quality-input .separator {
   height: 1px;
   width: 100%;
   margin: 25px 0;
-  background: #8B4513; /* Saddle Brown */
+  background: #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,28 +76,31 @@
 
 .air-quality-input .separator::before {
   content: "or";
-  color: #6C757D;
+  color: #020235;
   font-size: 1.18rem;
   padding: 0 15px;
   margin-top: -4px;
-  background: #D7CCC8; /* Brown shade */
+  background: #fff;
 }
 
 .air-quality-input button {
   width: 100%;
-  padding: 10px 0;
+  padding: 12px 0;
   cursor: pointer;
   outline: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   font-size: 1rem;
+  font-weight: 600;
   color: #fff;
-  background: #5D4037; /* Dark brown shade */
-  transition: 0.2s ease;
+  background: #4a1e11;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .air-quality-input button:hover {
-  background: #4E342E; /* Dark brown shade */
+  background: #e01414;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 .air-quality-input .location-btn {
@@ -97,11 +117,12 @@
 
 .current-air-quality {
   color: #fff;
-  background: #5D4037; /* Dark brown shade */
-  border-radius: 5px;
+  background: #ca3e17;
+  border-radius: 20px;
   padding: 20px;
   margin-bottom: 20px;
   text-align: center;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
 }
 
 .current-air-quality h2 {
@@ -117,6 +138,7 @@
 .details h6,
 .air-quality-status p {
   font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .days-air-quality-forecast {
@@ -137,15 +159,26 @@
 }
 
 .card {
-  color: #fff;
+  color: #ffffff;
   padding: 18px 16px;
   list-style: none;
   width: calc(100% / 5);
-  background: #c06114; /* Dark brown shade */
-  border-radius: 5px;
+  background: #e68906;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Increased shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 .card h3 {
   font-size: 1.3rem;
   font-weight: 600;
+}
+
+.location-btn{
+  justify-content: center;
+  align-items: center;
 }
