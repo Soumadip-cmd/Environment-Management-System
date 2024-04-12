@@ -21,7 +21,7 @@ const WaterManagement = () => {
     user_district: '',
     user_liveaddress: '',
     user_emergencyphneno: '',
-    image_link: 'C:\Users\bisha\Downloads\jimmy-chang-NP8gd2KUnfw-unsplash.jpg', // Added image_link field
+    image_link: 'https://images.unsplash.com/photo-1533167649158-6d508895b680?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Updated image link
   });
 
   const handleChange = (event) => {
@@ -117,3 +117,4 @@ const WaterManagement = () => {
 };
 
 export default WaterManagement;
+
