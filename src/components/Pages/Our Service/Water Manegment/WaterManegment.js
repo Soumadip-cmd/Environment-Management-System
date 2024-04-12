@@ -4,20 +4,20 @@ import WaterHeader from './WaterHeader';
 import './WaterManagement.css';
 
 const WaterManagement = () => {
-  const [randomImages, setRandomImages] = useState([]);
+  const [randomImage, setRandomImage] = useState('');
 
   useEffect(() => {
-    const fetchRandomImages = async () => {
+    const fetchRandomImage = async () => {
       try {
         const response = await axios.get('https://source.unsplash.com/random/1536x500?/nature');
-        console.log(response.data); // Log the response data
-        setRandomImages(response.data);
+        console.log(response.request.responseURL); // Log the response URL
+        setRandomImage(response.request.responseURL); // Set the response URL
       } catch (error) {
-        console.error('Error fetching random images:', error);
+        console.error('Error fetching random image:', error);
       }
     };
 
-    fetchRandomImages();
+    fetchRandomImage();
   }, []);
 
   return (
@@ -25,10 +25,8 @@ const WaterManagement = () => {
       <WaterHeader />
       <div className="container mt-5">
         <div className="border p-4 rounded">
-          <div className="random-images">
-            {randomImages.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Random Image ${index}`} />
-            ))}
+          <div className="random-image">
+            {randomImage && <img src={randomImage} alt="Random Image" />}
           </div>
           <h2>Water Leakage Reporting</h2>
         </div>
