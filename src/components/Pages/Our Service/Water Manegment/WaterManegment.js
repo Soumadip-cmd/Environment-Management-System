@@ -35,7 +35,7 @@ const WaterManagement = () => {
               Privacy
             </button>
             <img
-              src="https://source.unsplash.com/random/1536x500?/nature"
+              src=""
               className="img-fluid profile-bg-fix"
               alt="background image"
             />
