@@ -1,39 +1,97 @@
 .animated-form-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  @keyframes fadeIn {
-    from {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
       opacity: 0;
-    }
-    to {
+  }
+  to {
       opacity: 1;
-    }
   }
-  
-  .animated-form {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    animation: slideIn 0.3s ease;
-  }
-  
-  @keyframes slideIn {
-    from {
+}
+
+.animated-form {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
       transform: translateY(-50%);
-    }
-    to {
-      transform: translateY(0);
-    }
   }
-  
+  to {
+      transform: translateY(0);
+  }
+}
+
+.water-management-header {
+  background-color: #7d583c;
+  color: #fff;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.water-management-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.water-management-form {
+  padding: 20px;
+}
+
+.water-management-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #7d583c;
+}
+
+.water-management-form input[type="text"],
+.water-management-form input[type="file"],
+.water-management-form input[type="email"],
+.water-management-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.water-management-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.water-management-form button {
+  padding: 10px 20px;
+  background-color: #7d583c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.water-management-form button:hover {
+  background-color: #5c3a24;
+}
+

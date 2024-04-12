@@ -74,7 +74,7 @@ const AirQuality = () => {
   };
 
   const getAirQualityStatus = (iaqi) => {
-    let airQuality = 'Good';
+    let airQuality = 'Very Good';
 
     for (const key in iaqi) {
       if (iaqi.hasOwnProperty(key)) {
@@ -104,7 +104,7 @@ const AirQuality = () => {
                 placeholder="E.g., Jadavpur, Kolkata, India"
               />
               <button onClick={handleSearchButtonClick} className="search-btn">Search</button>
-              <div className="separator">or</div>
+              <div className="separator"></div>
               <button type="button" className="btn btn-success" onClick={handleGeoLocation}>Live Location</button>
             </>
           
@@ -124,13 +124,13 @@ const AirQuality = () => {
                     ))}
                   </div>
                   <div className="air-quality-status">
-                    <h2>Air Quality Status</h2>
+                    <h2>Air Quality Status of Your City</h2>
                     <p>{airQualityStatus}</p>
                   </div>
                 </>
               )}
               <div className="days-air-quality-forecast">
-                <h2>5-Day Air Quality Forecast</h2>
+                <h2>7-Day Air Quality Forecast</h2>
                 <ul className="air-quality-cards o3">
                   <h2>O3</h2>
                   {airQualityForecast && airQualityForecast.o3 && airQualityForecast.o3.map((forecast, index) => (
