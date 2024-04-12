@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const RewardsClaimSchema = new mongoose.Schema({
@@ -46,6 +47,27 @@ const RewardsClaimSchema = new mongoose.Schema({
   user_emergencyphneno: {
     type: String,
     required: true
+  },
+  work_type:{
+    type:String,
+    required:true
+  },
+  other_worktype:{
+    type:String,
+    
+  },
+  date_time:{
+    type:String,
+    required:true
+  },
+  description:{
+    type:String,
+    
+  },
+  status: {
+    type: String,
+    enum: ['Pending', 'Approved', 'Rejected'], 
+    default: 'Pending' 
   }
 });
 

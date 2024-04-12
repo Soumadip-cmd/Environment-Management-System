@@ -12,7 +12,7 @@ Connection();
 // CORS Policy
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', 'GET, POST');
+  res.header('Access-Control-Allow-Methods', 'GET, POST','PUT');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');
   next();
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 app.use(cors({
   origin: 'http://localhost:3000',
-  methods: ["GET", "POST"],
+  methods: ["GET", "POST","PUT"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"]
 }));

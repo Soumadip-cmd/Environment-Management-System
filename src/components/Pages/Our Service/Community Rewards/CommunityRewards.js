@@ -21,6 +21,10 @@ const CommunityRewards = () => {
    
     user_liveaddress: "",
     user_emergencyphneno: "",
+    work_type:"",
+    other_worktype:"",
+    date_time:"",
+    description:""
   });
 
   const handleChange = (event) => {
@@ -78,6 +82,10 @@ const CommunityRewards = () => {
        
         user_liveaddress: "",
         user_emergencyphneno: "",
+        work_type:"",
+        other_worktype:"",
+        date_time:"",
+        description:""
       });
   
       setShowForm(false);
@@ -100,6 +108,10 @@ const CommunityRewards = () => {
           user_birthday: formData.user_birthday,
           user_docx: formData.user_docx,
           user_emergencyphneno: formData.user_emergencyphneno,
+          work_type: formData.work_type,
+          other_worktypes: formData.other_worktype,
+          date_time:formData.date_time,
+          description:formData.description
         };
         let oldUserData = [...user, currentUserFormData];
         setUser(oldUserData);
@@ -280,23 +292,66 @@ const CommunityRewards = () => {
                   </div>
                   
               </div>
-    <div className='col-sm-12 col-md-3 mb-3'>
-    <label>Action </label>
-    <div className="d-flex justify-content-between ">
-      <button type="button" className="btn btn-secondary " onClick={handleCancel}>Cancel</button>
-      <button type="submit" className="btn btn-primary">Submit</button>
-    </div>
-  </div>
-  
+              <div className='col-sm-12 col-md-3 mb-3'>
+              <label htmlFor="customTextarea" className="form-label">Describe Your Problem</label>
+              <textarea className="form-control" id="description" rows="3" name="description" value={formData.description} onChange={handleChange}></textarea>
+            </div>
+
+                
               
              </div>
-             {/* <div className="row">
-                
-                <div className="col-sm-12 col-md-12 col-lg-11 d-flex justify-content-start">
-                  <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>Cancel</button>
-                  <button type="submit" className="btn btn-primary">Submit</button>
+             <div className='row'>
+      <div className='col-sm-12 col-md-3 mb-3'>
+        <label htmlFor='work_type'>Select Your Contribution Type </label>
+        <select
+          className="form-control"
+          id="work_type"
+          name="work_type"
+          value={formData.work_type}
+          onChange={handleChange}
+          required
+        >
+          <option value="" disabled>--------Select Your Contribution Type------------</option>
+          <option value="garbage">Garbage Cleaning</option>
+          <option value="water-likage">Water Leakage Solution</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      {formData.work_type === 'other' && (
+        <div className='col-sm-12 col-md-3 mb-3'>
+          <label htmlFor='other_worktype'>If Other type here <span style={{ color:"red" }}>*</span></label>
+          <input
+            type="text"
+            className="form-control"
+            id="other_worktype"
+            name="other_worktype"
+            value={formData.other_worktype}
+            onChange={handleChange}
+          />
+        </div>
+      )}
+      <div className='col-sm-12 col-md-3 mb-3'>
+              <label htmlFor="date">Contribution Date & Time </label>
+                    <input
+                      type="datetime-local"
+                      className="form-control"
+                      id="date_time"
+                      name="date_time"
+                      value={formData.date_time}
+                      onChange={handleChange}
+                      required
+                    />
+              </div>
+              <div className='col-sm-12 col-md-3 mb-3'>
+              <label>Action </label>
+              <div className="d-flex  ">
+             <button type="button" className="btn btn-secondary " onClick={handleCancel}>Cancel</button>
+              <button type="submit" className="btn btn-primary" style={{
+                marginLeft:"15px"
+              }}>Submit</button>
+               </div>
                 </div>
-              </div> */}
+    </div>
             </form>
           )}
           <button className="btn btn-success mt-3">Track Your Rewards</button>
