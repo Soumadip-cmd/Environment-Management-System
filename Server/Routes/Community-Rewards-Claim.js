@@ -67,12 +67,10 @@ router.get('/rewards-claim', (req, res) => {
 });
 
 router.put('/rewards-claim/:userId', async (req, res) => {
-    // Find the user Id using req.userId in mongodb
     const userId = req.params.userId;
     const { status } = req.body;
-
+    
     try {
-        // Find the user by ID and update the status
         const updatedUser = await RewardUserModel.findByIdAndUpdate(userId, { status }, { new: true });
 
         if (!updatedUser) {

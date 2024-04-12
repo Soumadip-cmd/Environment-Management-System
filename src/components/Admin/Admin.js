@@ -13,30 +13,42 @@ export default function Myleave() {
         console.log(result.data);
       });
   }, []);
-  const handleApprove = (userId) => {
-    
-    axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Approved" })
-      .then((response) => {
-       
-        setUsers(users.map(user => user._id === userId ? { ...user, status: "Approved" } : user));
-      })
-      .catch((error) => {
-        console.error("Error approving user:", error);
-      });
-  };
+  // Function to handle approval of a user
+// Function to handle approval of a user
+const handleApprove = (userId) => {
+  axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Approved" })
+    .then((response) => {
+      // Find the index of the user in the users array
+      const index = users.findIndex(user => user._id === userId);
+      // Create a copy of the users array
+      const updatedUsers = [...users];
+      // Update the status of the user in the copied array
+      updatedUsers[index] = { ...updatedUsers[index], status: "Approved" };
+      // Update the state with the modified users array
+      setUsers(updatedUsers);
+    })
+    .catch((error) => {
+      console.error("Error approving user:", error);
+    });
+};
 
-  // Function to handle rejection of a user
-  const handleReject = (userId) => {
-    
-    axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Rejected" })
-      .then((response) => {
-       
-        setUsers(users.map(user => user._id === userId ? { ...user, status: "Rejected" } : user));
-      })
-      .catch((error) => {
-        console.error("Error rejecting user:", error);
-      });
-  };
+// Function to handle rejection of a user
+const handleReject = (userId) => {
+  axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Rejected" })
+    .then((response) => {
+      // Find the index of the user in the users array
+      const index = users.findIndex(user => user._id === userId);
+      // Create a copy of the users array
+      const updatedUsers = [...users];
+      // Update the status of the user in the copied array
+      updatedUsers[index] = { ...updatedUsers[index], status: "Rejected" };
+      // Update the state with the modified users array
+      setUsers(updatedUsers);
+    })
+    .catch((error) => {
+      console.error("Error rejecting user:", error);
+    });
+};
 
   return (
     <>
