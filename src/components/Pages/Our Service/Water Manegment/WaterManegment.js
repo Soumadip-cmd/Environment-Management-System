@@ -10,7 +10,7 @@ const WaterManagement = () => {
   useEffect(() => {
     const fetchRandomImages = async () => {
       try {
-        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
+        const response = await axios.get('https://source.unsplash.com/random/1536x500?/nature');
         setRandomImages([response.request.responseURL]);
       } catch (error) {
         console.error('Error fetching random images:', error);
@@ -34,6 +34,15 @@ const WaterManagement = () => {
       <WaterHeader /> {/* Include the WaterHeader component */}
       <div className="container mt-5">
         <div className="border p-4 rounded">
+          <div className="random-images">
+            {randomImages.map((imageUrl, index) => (
+              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid" />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="container mt-5">
+        <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
           <div className="mb-3">
             <label htmlFor="report">Write your water leakage problem:</label>
@@ -55,15 +64,6 @@ const WaterManagement = () => {
             </div>
           )}
           <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
-        </div>
-      </div>
-      <div className="container mt-5">
-        <div className="border p-4 rounded">
-          <div className="random-images">
-            {randomImages.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid" />
-            ))}
-          </div>
         </div>
       </div>
     </div>
