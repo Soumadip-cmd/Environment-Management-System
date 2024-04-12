@@ -1,41 +1,48 @@
 import React, { useContext, useRef } from "react";
 import CameraContext from "../context/CameraContext";
 
-const Camera = (props) => {
+const CameraBg = (props) => {
   // class1-->Stand for position the camera button using className
   // modal-title--> take titlte
   // related-text-->gives a content brief description about the topic
   // photo_height,photo_width--> set the  acccepted imaGE height width
-  // img_src--> is the default image place on the camera modal
+  // img_src--> is the default bgimage1 place on the camera modal
   // modal-type---> stand for  target modal
   // specific_img--->this is used to select a particular div for a particular modal(by not changing all div){you can say as target}(imp to add)
-  const { class1, modal_title, related_text,photo_height,photo_width,img_src,modal_type,specific_img } = props;
-  
-  const {image,setImage}=useContext(CameraContext)
-  
+  const {
+    class1,
+    modal_title,
+    related_text,
+    photo_height,
+    photo_width,
+    img_src,
+    modal_type,
+    specific_img,
+  } = props;
+
+  const { bgimage1, setBgimage1 } = useContext(CameraContext);
+
   const refclose = useRef(null);
   const handleUpload = () => {
     refclose.current.click();
-    document.getElementById(specific_img).value=""
-    
-    // setImage({...image,[event.target.id]:[event.target.value]})
-    setImage('')
-  };
-  
-  const changing=(event)=>{
-    setImage(event.target.files[0])
-    
-  
-  }
+    document.getElementById(specific_img).value = "";
 
-  var image_body={
-    height:{photo_height},
-    width:{photo_width},
-    borderRadius:'5px'
-  }
+    // setBgimage1({...bgimage1,[event.target.id]:[event.target.value]})
+    // setBgimage1('')
+  };
+
+  const changing = (event) => {
+    setBgimage1(event.target.files[0]);
+  };
+
+  var image_body = {
+    height: { photo_height },
+    width: { photo_width },
+    borderRadius: "5px",
+  };
   return (
     <>
-      {/* camera image */}
+      {/* camera bgimage1 */}
       <span
         className={`profile-file-upload p-1 mx-2 perfect ${class1} my-0`}
         data-bs-toggle="modal"
@@ -79,8 +86,26 @@ const Camera = (props) => {
             </div>
             <div className="modal-body">
               <div className="mb-3">
-                <h6><i style={{color:'brown'}}>{related_text}</i></h6>
-                {image?(<img className="container mb-3 d-flex justify-content-center" style={image_body} src={URL.createObjectURL(image)} id="view1" alt="image" />):(<img className="container mb-3 d-flex justify-content-center" alt="image" style={image_body} src={img_src} id="view0" />)}
+                <h6>
+                  <i style={{ color: "brown" }}>{related_text}</i>
+                </h6>
+                {bgimage1 ? (
+                  <img
+                    className="container mb-3 d-flex justify-content-center"
+                    style={image_body}
+                    src={URL.createObjectURL(bgimage1)}
+                    id="view1"
+                    alt="bgimage1"
+                  />
+                ) : (
+                  <img
+                    className="container mb-3 d-flex justify-content-center"
+                    alt="bgimage1"
+                    style={image_body}
+                    src={img_src}
+                    id="view0"
+                  />
+                )}
               </div>
 
               {/* <div className="mb-3">
@@ -94,9 +119,14 @@ const Camera = (props) => {
                 <label htmlFor={specific_img} className="form-label">
                   Upload as jpeg/png File:
                 </label>
-                <input className="form-control" accept=".png, .jpeg, .jpg" type="file" id={specific_img} onChange={changing}  />
+                <input
+                  className="form-control"
+                  accept=".png, .jpeg, .jpg"
+                  type="file"
+                  id={specific_img}
+                  onChange={changing}
+                />
               </div>
-
             </div>
             <div className="modal-footer d-flex justify-content-center ">
               <button
@@ -114,11 +144,12 @@ const Camera = (props) => {
   );
 };
 
-Camera.defaultProps = {
+CameraBg.defaultProps = {
   modal_title: "Modal Title",
   related_text: "Choose Your Desire Photo",
-  photo_height:'140px',
-  photo_width:'150px',
+  photo_height: "140px",
+  photo_width: "150px",
   // specific_img:'modalimg'
 };
-export default Camera;
+
+export default CameraBg;

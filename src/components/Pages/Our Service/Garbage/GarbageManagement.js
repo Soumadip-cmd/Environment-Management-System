@@ -1,12 +1,13 @@
 import React from "react";
 import "./GarbageManegment.css";
 import GarbageHeader from "./GarbageHeader";
-import Camera from "./Camera/Camera";
 import { useContext } from "react";
 import CameraContext from "./context/CameraContext";
+import CameraProfile from "./Camera/CameraProfile";
+import CameraBg from "./Camera/CameraBg";
 
 const GarbageManagement = () => {
-  const {image,setImage}=useContext(CameraContext)
+  const {image,bgimage1}=useContext(CameraContext)
   return (
     <div className="garbage-body">
       <div className="">
@@ -17,7 +18,7 @@ const GarbageManagement = () => {
             className=" img-fluid"
             alt="background image"
           /> */}
-          {image?(<img className="img-fluid profile-bg-fix"  src={URL.createObjectURL(image)} id="view1" />):(<img
+          {bgimage1?(<img className="img-fluid profile-bg-fix"  src={URL.createObjectURL(bgimage1)} id="view1" />):(<img
             src="https://source.unsplash.com/random/1536x500?/nature"
             className=" img-fluid profile-bg-fix"
             alt="background image"
@@ -32,7 +33,7 @@ const GarbageManagement = () => {
               src="profile.png"
               className=" img-fluid img-style mx-2 profile_condition"
               alt="profile"/>)}
-            <Camera class1="extra-pos" photo_height="140px" photo_width="150px" img_src="profile.png" modal_type="profile_photo" modal_title="Upload Profile Photo" specific_img="modal1" />
+            <CameraProfile class1="extra-pos" photo_height="140px" photo_width="150px" img_src="profile.png" modal_type="profile_photo" modal_title="Upload Profile Photo" specific_img="modal1" />
   <span className="fs-1 mx-3" style={{ ffontWeight: "800" }}>
               Soumadip Santra
             </span>
@@ -48,7 +49,7 @@ const GarbageManagement = () => {
               />
               Privacy
             </button>
-            <Camera class1="" photo_height="500px" photo_width="1536px" img_src="https://source.unsplash.com/random/1536x500?/nature" modal_type="profile_bg" modal_title="Upload Profile-BackGround Photo" specific_img="modal2"/>
+            <CameraBg class1="" photo_height="500px" photo_width="1536px" img_src="https://source.unsplash.com/random/1536x500?/nature" modal_type="profile_bg" modal_title="Upload Profile-BackGround Photo" specific_img="modal2"/>
               
             
           </div>
