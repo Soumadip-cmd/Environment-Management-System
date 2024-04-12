@@ -33,7 +33,7 @@ const WaterManagement = () => {
     <div className="water-body">
       <WaterHeader /> {/* Include the WaterHeader component */}
       <div className="container mt-5">
-        <div className="border p-4 rounded">
+        <div className="border p-4 rounded random-images-container">
           <div className="random-images">
             {randomImages.map((imageUrl, index) => (
               <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid" />
