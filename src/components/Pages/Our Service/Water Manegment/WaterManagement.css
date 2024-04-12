@@ -95,3 +95,9 @@ body {
   height: 500px;
   width: 1536px;
 }
+
+/* WaterManagement.css */
+
+body {
+  overflow-y: auto; /* Add scrollbar to the y-axis */
+}
