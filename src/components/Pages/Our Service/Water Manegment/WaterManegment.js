@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import WaterHeader from './WaterHeader'; // Import the WaterHeader component
+import WaterHeader from './WaterHeader';
 import axios from 'axios';
 import './WaterManagement.css';
 
@@ -29,18 +29,16 @@ const WaterManagement = () => {
     alert('Image uploaded successfully!');
   };
 
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div className="water-body">
-      <WaterHeader /> {/* Include the WaterHeader component */}
-      <div className="container mt-5">
-        <div className="border p-4 rounded random-images-container">
-          <div className="random-images">
-            {randomImages.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid" />
-            ))}
-          </div>
-        </div>
-      </div>
+      <WaterHeader />
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
@@ -66,6 +64,16 @@ const WaterManagement = () => {
           <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
         </div>
       </div>
+      <div className="container mt-5">
+        <div className="border p-4 rounded">
+          <div className="random-images">
+            {randomImages.map((imageUrl, index) => (
+              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid" />
+            ))}
+          </div>
+        </div>
+      </div>
+      <button className="scroll-button" onClick={scrollToBottom}>Scroll to Bottom</button>
     </div>
   );
 };
