@@ -1,0 +1,27 @@
+.small-profile{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background: #c0bbbb;
+}
+.garbagemainBody{
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.button{
+    width: 1022px;
+    border-radius: 10px;
+    background: #8080807d;
+    color: black;
+    font-weight: 800;
+}
+.button:hover{
+    background: #808080ab;
+
+}
+.img-extra{
+    border-radius: 35px;
+    width: 1536px;
+    height: 500px;
+}
