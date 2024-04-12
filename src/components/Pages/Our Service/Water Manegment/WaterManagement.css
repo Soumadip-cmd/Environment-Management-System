@@ -1,27 +1,28 @@
-User
-.srch-style{
-    border-radius: 20px;
-    background: #794242;
-    border: none;
-    width: 555px;
-    
+body {
+  overflow-y: scroll;
 }
-.srch-style::placeholder{
-    color: white;
-    
-}
-.srch-style:focus{
-    background: #794242;
-    color: white;
-    box-shadow: none;
-    outline: none;
-    
 
+.srch-style {
+  border-radius: 20px;
+  background: #794242;
+  border: none;
+  width: 555px;
 }
+
+.srch-style::placeholder {
+  color: white;
+}
+
+.srch-style:focus {
+  background: #794242;
+  color: white;
+  box-shadow: none;
+  outline: none;
+}
+
 .srch-style::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-    appearance: none;
-    /* color: white; Change the color here */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* @media (min-width: 990px) and (max-width: 1090px) {
@@ -35,51 +36,67 @@ User
     top: 1px;
     cursor: pointer;
 }
-.extra1{
-    word-spacing: 0.2em;
-    letter-spacing: .012em;
+
+.extra1 {
+  word-spacing: 0.2em;
+  letter-spacing: .012em;
 }
-.bgbtn-pos{
-    position: absolute;
-    right: 14px;
-    top: 218px;
+
+.bgbtn-pos {
+  position: absolute;
+  right: 14px;
+  top: 218px;
 }
-.perfect{
-    background: #ffffffa3;
-    border: none;
-    border-radius: 3px;
-    color: black;
-    cursor: pointer;
+
+.perfect {
+  background: #ffffffa3;
+  border: none;
+  border-radius: 3px;
+  color: black;
+  cursor: pointer;
 }
-.img-style{
-    background: white;
-    border-radius: 5px;
-    position: relative;
+
+.img-style {
+  background: white;
+  border-radius: 5px;
+  position: relative;
 }
-.profile-pos{
-    position: absolute;
-    top: 173px;
-    left: 37px;
-    color: white;
+
+.profile-pos {
+  position: absolute;
+  top: 173px;
+  left: 37px;
+  color: white;
 }
-.extra-pos{
-    position: absolute;
-    bottom: 0;
-    left: 21%;
-    cursor: pointer;
+
+.extra-pos {
+  position: absolute;
+  bottom: 0;
+  left: 21%;
+  cursor: pointer;
 }
-.garbage-body{
-    background-color:rgb(222 218 218);
-    height: 100vh;
+
+.water-body {
+  background-color: rgb(222, 218, 218);
+  min-height: 100vh;
 }
+
 #file-upload {
-    display: none;
-  }
-.profile_condition{
-    height: 150px;
-    width: 150px;
+  display: none;
 }
-.profile-bg-fix{
-    height: 500px;
-    width: 1536px;
+
+.profile_condition {
+  height: 150px;
+  width: 150px;
+}
+
+.profile-bg-fix {
+  height: 500px;
+  width: 1536px;
+}
+
+/* WaterManagement.css */
+
+body {
+  overflow-y: auto; /* Add scrollbar to the y-axis */
 }
