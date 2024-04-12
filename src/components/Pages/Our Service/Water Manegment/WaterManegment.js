@@ -7,6 +7,7 @@ import './WaterManagement.css';
 const WaterManagement = () => {
   const [randomImages, setRandomImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [liveLocation, setLiveLocation] = useState(null);
 
   useEffect(() => {
     const fetchRandomImages = async () => {
@@ -26,6 +27,7 @@ const WaterManagement = () => {
     setSelectedImage(URL.createObjectURL(file));
     const location = await hasLiveLocation(file);
     console.log('Live location:', location);
+    setLiveLocation(location);
   };
 
   const handleUpload = () => {
@@ -67,6 +69,16 @@ const WaterManagement = () => {
     });
   };
 
+  const handleShowLocation = () => {
+    // Open Google Maps with the live location
+    if (liveLocation) {
+      const { latitude, longitude } = liveLocation;
+      window.open(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`, '_blank');
+    } else {
+      alert('No live location available.');
+    }
+  };
+
   return (
     <div className="water-body">
       <WaterHeader /> {/* Include the WaterHeader component */}
@@ -93,6 +105,11 @@ const WaterManagement = () => {
             </div>
           )}
           <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
+          {liveLocation && (
+            <button className="btn btn-secondary ms-2" onClick={handleShowLocation}>
+              Show Live Location on Map
+            </button>
+          )}
         </div>
       </div>
       <div className="container mt-5">
