@@ -37,7 +37,7 @@ const Signup = () => {
               />
               <i className="input-icon uil uil-lock-alt"></i>
             </div>
-            <Link to="/" className="btn mt-4">
+            <Link to="/" className="btn1 mt-4">
               Register
             </Link>
           </div>

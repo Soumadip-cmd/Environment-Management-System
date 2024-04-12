@@ -74,3 +74,11 @@
 #file-upload {
     display: none;
   }
+.profile_condition{
+    height: 150px;
+    width: 150px;
+}
+.profile-bg-fix{
+    height: 500px;
+    width: 1536px;
+}

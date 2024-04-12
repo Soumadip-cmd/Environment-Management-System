@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const GarbageHeader = () => {
   return (
@@ -6,12 +7,12 @@ const GarbageHeader = () => {
       <header className="py-3" style={{ background: "#781e1e" }}>
         <div className="">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start px-2">
-            <a
-              href="/"
+            <Link
+              to="/home"
               className="d-flex align-items-center mb-2 mb-lg-0 text-light text-decoration-none"
             >
               <img src="nav-logo.png" height={35} alt="Logo" className="mx-2" />
-            </a>
+            </Link>
 
             {/* <ul className="  me-lg-auto mb-2 justify-content-center mb-md-0"> */}
             <form className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 px-2">
@@ -38,19 +39,19 @@ const GarbageHeader = () => {
 
             <ul className="nav col-12 col-lg-auto mb-2 mb-lg-0 me-lg-3 justify-content-center">
               <li>
-                <a href="#" className="nav-link px-5 link-light extra1">
+                <Link to="/" className="nav-link px-5 link-light extra1">
                   <b>Soumadip's Page</b>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nav-link px-2 link-light">
+                <Link to="/" className="nav-link px-2 link-light">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" className="bi bi-star-fill mx-1" viewBox="0 0 16 16">
   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
 </svg><span className=" my-5">4 Stars</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nav-link px-2 link-light">
+                <Link to="/" className="nav-link px-2 link-light">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -61,14 +62,14 @@ const GarbageHeader = () => {
                   >
                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
                   </svg>
-                </a>
+                </Link>
               </li>
               
               
             </ul>
             <div className="dropdown text-end px-2">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="d-block link-light text-decoration-none "
                 id="dropdownUser1"
                 data-bs-toggle="dropdown"
@@ -81,33 +82,33 @@ const GarbageHeader = () => {
                   height="35"
                   className="rounded-circle mx-2 mb"
                 />
-              </a>
+              </Link>
               <ul
                 className="dropdown-menu text-small"
                 aria-labelledby="dropdownUser1"
               >
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/">
                     New project...
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/">
                     Settings
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/">
                     Profile
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/">
                     Sign out
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

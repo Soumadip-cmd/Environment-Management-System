@@ -46,7 +46,7 @@ const Login = () => {
                           </div>
                           <Link
                             to="/home"
-                            className="btn mt-4"
+                            className="btn1 mt-4"
                           >
                             Login
                           </Link>
