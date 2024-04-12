@@ -9,7 +9,8 @@ const WaterManagement = () => {
   useEffect(() => {
     const fetchRandomImages = async () => {
       try {
-        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
+        const response = await axios.get('https://source.unsplash.com/random/1536x500?/nature');
+        console.log(response.data); // Log the response data
         setRandomImages(response.data);
       } catch (error) {
         console.error('Error fetching random images:', error);
