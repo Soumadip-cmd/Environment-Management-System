@@ -1,21 +1,117 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const WaterHeader = () => {
   return (
-    <header className="water-header">
-      <div className="water-header-container">
-        <img
-          src="https://images.unsplash.com/photo-1533167649158-6d508895b680?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Water Header"
-          className="water-header-image"
-        />
-        <div className="water-header-overlay"></div>
-        <div className="water-header-content">
-          <h1 className="water-header-title">Water Management System</h1>
-          <p className="water-header-text">Report water-related issues and track their resolution.</p>
+    <>
+      <header className="py-3" style={{ background: "#781e1e" }}>
+        <div className="">
+          <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start px-2">
+            <Link
+              to="/home"
+              className="d-flex align-items-center mb-2 mb-lg-0 text-light text-decoration-none"
+            >
+              <img src="nav-logo.png" height={35} alt="Logo" className="mx-2" />
+            </Link>
+
+            <form className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 px-2">
+              <span style={{ position: "relative" }}>
+                <input
+                  type="search"
+                  className="form-control srch-style text-white px-4"
+                  placeholder="Search Water Management"
+                  aria-label="Search"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="white"
+                  className="bi bi-search float-end m-2 mx-3 search-icon"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+              </span>
+            </form>
+
+            <ul className="nav col-12 col-lg-auto mb-2 mb-lg-0 me-lg-3 justify-content-center">
+              <li>
+                <Link to="/" className="nav-link px-5 link-light extra1">
+                  <b>User's Page</b>
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="nav-link px-2 link-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" className="bi bi-star-fill mx-1" viewBox="0 0 16 16">
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                  </svg><span className=" my-5">4 Stars</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="nav-link px-2 link-light">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    className="bi bi-bell-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                  </svg>
+                </Link>
+              </li>
+            </ul>
+            <div className="dropdown text-end px-2">
+              <Link
+                to="/"
+                className="d-block link-light text-decoration-none "
+                id="dropdownUser1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://github.com/mdo.png"
+                  alt="mdo"
+                  width="35"
+                  height="35"
+                  className="rounded-circle mx-2 mb"
+                />
+              </Link>
+              <ul
+                className="dropdown-menu text-small"
+                aria-labelledby="dropdownUser1"
+              >
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    New project...
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    Settings
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    Sign out
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

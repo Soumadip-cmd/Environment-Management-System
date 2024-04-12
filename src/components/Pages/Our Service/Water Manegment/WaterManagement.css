@@ -1,97 +1,95 @@
-.animated-form-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeIn 0.3s ease;
-}
+/* Add your CSS styles for Water Management here */
 
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-}
-
-.animated-form {
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  overflow: hidden;
-  animation: slideIn 0.3s ease;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes slideIn {
-  from {
-      transform: translateY(-50%);
-  }
-  to {
-      transform: translateY(0);
-  }
-}
-
-.water-management-header {
-  background-color: #7d583c;
-  color: #fff;
-  padding: 20px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.water-management-header h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.water-management-form {
-  padding: 20px;
-}
-
-.water-management-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #7d583c;
-}
-
-.water-management-form input[type="text"],
-.water-management-form input[type="file"],
-.water-management-form input[type="email"],
-.water-management-form select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.water-management-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.water-management-form button {
-  padding: 10px 20px;
-  background-color: #7d583c;
-  color: #fff;
+.srch-style {
+  border-radius: 20px;
+  background: #794242;
   border: none;
-  border-radius: 5px;
+  width: 555px;
+}
+
+.srch-style::placeholder {
+  color: white;
+}
+
+.srch-style:focus {
+  background: #794242;
+  color: white;
+  box-shadow: none;
+  outline: none;
+}
+
+.srch-style::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (min-width: 990px) and (max-width: 1090px) {
+  .srch-style {
+      width: 282px;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  right: 0;
+  top: 1px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.water-management-form button:hover {
-  background-color: #5c3a24;
+.extra1 {
+  word-spacing: 0.2em;
+  letter-spacing: .012em;
 }
 
+.bgbtn-pos {
+  position: absolute;
+  right: 14px;
+  top: 218px;
+}
+
+.perfect {
+  background: #ffffffa3;
+  border: none;
+  border-radius: 3px;
+  color: black;
+  cursor: pointer;
+}
+
+.img-style {
+  background: white;
+  border-radius: 5px;
+  position: relative;
+}
+
+.profile-pos {
+  position: absolute;
+  top: 173px;
+  left: 37px;
+  color: white;
+}
+
+.extra-pos {
+  position: absolute;
+  bottom: 0;
+  left: 21%;
+  cursor: pointer;
+}
+
+.water-body {
+  background-color: rgb(222, 218, 218);
+  height: 100vh;
+}
+
+#file-upload {
+  display: none;
+}
+
+.profile_condition {
+  height: 150px;
+  width: 150px;
+}
+
+.profile-bg-fix {
+  height: 500px;
+  width: 1536px;
+}
