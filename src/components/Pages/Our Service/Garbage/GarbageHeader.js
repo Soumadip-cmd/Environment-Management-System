@@ -20,7 +20,7 @@ const GarbageHeader = () => {
               <span style={{ position: "relative" }}>
                 <input
                   type="search"
-                  className="form-control srch-style text-white px-4"
+                  className="form-control srch-style1 text-white px-4"
                   placeholder="Search EVS-Management"
                   aria-label="Search"
                 />
