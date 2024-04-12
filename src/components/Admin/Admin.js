@@ -13,8 +13,7 @@ export default function Myleave() {
         console.log(result.data);
       });
   }, []);
-  // Function to handle approval of a user
-// Function to handle approval of a user
+
 const handleApprove = (userId) => {
   axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Approved" })
     .then((response) => {
