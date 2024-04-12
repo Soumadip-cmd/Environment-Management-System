@@ -1,46 +1,36 @@
-import React from "react";
-import WaterHeader from "./WaterHeader"; // Import the WaterHeader component
-import "./WaterManagement.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import WaterHeader from './WaterHeader';
+import './WaterManagement.css';
 
 const WaterManagement = () => {
+  const [randomImages, setRandomImages] = useState([]);
+
+  useEffect(() => {
+    const fetchRandomImages = async () => {
+      try {
+        const response = await axios.get('https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        setRandomImages(response.data);
+      } catch (error) {
+        console.error('Error fetching random images:', error);
+      }
+    };
+
+    fetchRandomImages();
+  }, []);
+
   return (
     <div className="water-body">
-      <WaterHeader /> {/* Include the WaterHeader component */}
-      <div className="">
-        <span style={{ position: "relative" }}>
-          <img
-            src="https://unsplash.com/photos/body-of-water-dYO_5KOMEkA"
-            className="img-fluid profile-bg-fix"
-            alt="background image"
-          />
-          <div className="float-start profile-pos">
-            <img
-              src="profile.png"
-              className="img-fluid img-style mx-2 profile_condition"
-              alt="profile"
-            />
-            <span className="fs-1 mx-3" style={{ fontWeight: "800" }}>
-              Soumadip Santra
-            </span>
+      <WaterHeader />
+      <div className="container mt-5">
+        <div className="border p-4 rounded">
+          <div className="random-images">
+            {randomImages.map((imageUrl, index) => (
+              <img key={index} src={imageUrl} alt={`Random Image ${index}`} />
+            ))}
           </div>
-          <div className="float-end bgbtn-pos">
-            <button className="p-1 mx-2 perfect">
-              <img
-                src="padlock.png"
-                alt="lock"
-                className="mx-1 my-0"
-                width="20"
-                height="20"
-              />
-              Privacy
-            </button>
-            <img
-              src=""
-              className="img-fluid profile-bg-fix"
-              alt="background image"
-            />
-          </div>
-        </span>
+          <h2>Water Leakage Reporting</h2>
+        </div>
       </div>
     </div>
   );
