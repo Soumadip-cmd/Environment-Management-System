@@ -14,10 +14,10 @@ export default function Myleave() {
       });
   }, []);
   const handleApprove = (userId) => {
-    // Send a request to your backend API to update the user status to "Approved"
+    
     axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Approved" })
       .then((response) => {
-        // If the request is successful, update the local state to reflect the change
+       
         setUsers(users.map(user => user._id === userId ? { ...user, status: "Approved" } : user));
       })
       .catch((error) => {
@@ -27,10 +27,10 @@ export default function Myleave() {
 
   // Function to handle rejection of a user
   const handleReject = (userId) => {
-    // Send a request to your backend API to update the user status to "Rejected"
+    
     axios.put(`http://localhost:8080/rewards-claim/${userId}`, { status: "Rejected" })
       .then((response) => {
-        // If the request is successful, update the local state to reflect the change
+       
         setUsers(users.map(user => user._id === userId ? { ...user, status: "Rejected" } : user));
       })
       .catch((error) => {
