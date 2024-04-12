@@ -9,7 +9,7 @@ const WaterManagement = () => {
       <div className="">
         <span style={{ position: "relative" }}>
           <img
-            src="https://source.unsplash.com/random/1536x500?/nature"
+            src="https://unsplash.com/photos/body-of-water-dYO_5KOMEkA"
             className="img-fluid profile-bg-fix"
             alt="background image"
           />
