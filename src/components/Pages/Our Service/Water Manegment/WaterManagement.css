@@ -1,3 +1,7 @@
+body {
+  overflow-y: scroll;
+}
+
 .srch-style {
   border-radius: 20px;
   background: #794242;
@@ -75,7 +79,7 @@
 
 .water-body {
   background-color: rgb(222, 218, 218);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #file-upload {
@@ -90,20 +94,4 @@
 .profile-bg-fix {
   height: 500px;
   width: 1536px;
-}
-
-.scroll-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.scroll-button:hover {
-  background-color: #0056b3;
 }
