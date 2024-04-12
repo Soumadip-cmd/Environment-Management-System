@@ -12,7 +12,7 @@ const WaterManagement = () => {
   useEffect(() => {
     const fetchRandomImages = async () => {
       try {
-        const response = await axios.get('https://source.unsplash.com/random/1536x500?/nature');
+        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
         setRandomImages([response.request.responseURL]);
       } catch (error) {
         console.error('Error fetching random images:', error);
@@ -28,8 +28,6 @@ const WaterManagement = () => {
     const location = await hasLiveLocation(file);
     console.log('Live location:', location);
     setLiveLocation(location);
-    // Open a new window with the form
-    window.open('/form', '_blank');
   };
 
   const handleUpload = () => {
@@ -87,6 +85,11 @@ const WaterManagement = () => {
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
+          <div className="random-images">
+            {randomImages.map((imageUrl, index) => (
+              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid mb-3" />
+            ))}
+          </div>
           <div className="mb-3">
             <label htmlFor="report">Write your water leakage problem:</label>
             <textarea className="form-control" id="report" rows="3"></textarea>
