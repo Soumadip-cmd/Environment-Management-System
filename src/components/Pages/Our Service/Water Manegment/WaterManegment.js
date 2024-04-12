@@ -8,7 +8,6 @@ const WaterManagement = () => {
   const [randomImages, setRandomImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [liveLocation, setLiveLocation] = useState(null);
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchRandomImages = async () => {
@@ -29,7 +28,13 @@ const WaterManagement = () => {
     const location = await hasLiveLocation(file);
     console.log('Live location:', location);
     setLiveLocation(location);
-    setShowForm(true); // Show the form
+    // Open a new window with the form
+    window.open('/form', '_blank');
+  };
+
+  const handleUpload = () => {
+    // Logic to upload the selected image
+    alert('Image uploaded successfully!');
   };
 
   const hasLiveLocation = async (file) => {
@@ -66,10 +71,14 @@ const WaterManagement = () => {
     });
   };
 
-  const handleSubmitForm = () => {
-    // Logic to handle form submission
-    alert('Form submitted successfully!');
-    setShowForm(false); // Hide the form after submission
+  const handleShowLocation = () => {
+    // Open Google Maps with the live location
+    if (liveLocation) {
+      const { latitude, longitude } = liveLocation;
+      window.open(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`, '_blank');
+    } else {
+      alert('No live location available.');
+    }
   };
 
   return (
@@ -97,25 +106,9 @@ const WaterManagement = () => {
               <img src={selectedImage} alt="Selected" className="img-fluid" />
             </div>
           )}
-          {showForm && (
-            <form className="mb-3">
-              <div className="mb-3">
-                <label htmlFor="name">Name:</label>
-                <input type="text" className="form-control" id="name" />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="address">Address:</label>
-                <input type="text" className="form-control" id="address" />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="phone">Phone Number:</label>
-                <input type="tel" className="form-control" id="phone" />
-              </div>
-              <button type="button" className="btn btn-primary" onClick={handleSubmitForm}>Submit</button>
-            </form>
-          )}
+          <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
           {liveLocation && (
-            <button className="btn btn-secondary ms-2" onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${liveLocation.latitude},${liveLocation.longitude}`, '_blank')}>
+            <button className="btn btn-secondary ms-2" onClick={handleShowLocation}>
               Show Live Location on Map
             </button>
           )}
