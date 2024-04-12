@@ -11,7 +11,7 @@ import AirQuality from "./components/Pages/Our Service/Air Quality/AirQuality";
 import Blog from "./components/Pages/Blog/Blog";
 import GarbageManagement from "./components/Pages/Our Service/Garbage/GarbageManagement";
 import CameraState from "./components/Pages/Our Service/Garbage/context/CameraState";
-
+import Admin from './components/Admin/Admin';
 function App() {
   return (
     <div>
@@ -55,6 +55,10 @@ function App() {
 
             <Route exact path="/airquality">
               <AirQuality />
+            </Route>
+            
+            <Route exact path="/admin">
+              <Admin />
             </Route>
           </Switch>
         </Router>
