@@ -21,9 +21,11 @@ const WaterManagement = () => {
 
   return (
     <div className="water-body">
+      <h1 className="mt-3 mb-4 text-center">Water Leakage Problems</h1>
       <WaterHeader /> {/* Include the WaterHeader component */}
       <div className="container mt-5">
         <div className="border p-4 rounded">
+          <h2 className="mb-4">Water Leakage Reporting</h2>
           <div className="random-images">
             {randomImages.map((imageUrl, index) => (
               <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid mb-3" />
@@ -34,8 +36,8 @@ const WaterManagement = () => {
               Choose if you are a contributor or a customer
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a className="dropdown-item" href="#">Contributor</a></li>
-              <li><a className="dropdown-item" href="#">Customer</a></li>
+              <li><a className="dropdown-item" href="#" target="_blank" rel="noopener noreferrer">Contributor</a></li>
+              <li><a className="dropdown-item" href="#" target="_blank" rel="noopener noreferrer">Customer</a></li>
             </ul>
           </div>
         </div>
