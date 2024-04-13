@@ -1,22 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const GarbageHeader = () => {
-  const [randomImage, setRandomImage] = useState(null);
-
-  useEffect(() => {
-    const fetchRandomImage = async () => {
-      try {
-        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
-        setRandomImage(response.request.responseURL);
-      } catch (error) {
-        console.error('Error fetching random image:', error);
-      }
-    };
-
-    fetchRandomImage();
-  }, []);
-
+const WaterHeader = () => {
   return (
     <>
       <header className="py-3" style={{ background: "#781e1e" }}>
@@ -34,7 +19,7 @@ const GarbageHeader = () => {
                 <input
                   type="search"
                   className="form-control srch-style1 text-white px-4"
-                  placeholder="Search EVS-Management"
+                  placeholder="Search Water Management"
                   aria-label="Search"
                 />
                 <svg
@@ -53,7 +38,7 @@ const GarbageHeader = () => {
             <ul className="nav col-12 col-lg-auto mb-2 mb-lg-0 me-lg-3 justify-content-center">
               <li>
                 <Link to="/" className="nav-link px-5 link-light extra1">
-                  <b>Soumadip's Page</b>
+                  <b>User's Page</b>
                 </Link>
               </li>
               <li>
@@ -77,8 +62,6 @@ const GarbageHeader = () => {
                   </svg>
                 </Link>
               </li>
-              
-              
             </ul>
             <div className="dropdown text-end px-2">
               <Link
@@ -128,13 +111,8 @@ const GarbageHeader = () => {
           </div>
         </div>
       </header>
-      {randomImage && (
-        <div className="random-image-header">
-          <img src={randomImage} alt="Random" className="img-fluid" />
-        </div>
-      )}
     </>
   );
 };
 
-export default GarbageHeader;
+export default WaterHeader;

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import WaterHeader from './WaterHeader';
 import axios from 'axios';
 import exifr from 'exifr';
-import GarbageHeader from './GarbageHeader';
 import CameraContext from './context/CameraContext';
 import CameraProfile from './Camera/CameraProfile';
 import CameraBg from './Camera/CameraBg';
@@ -83,7 +82,7 @@ const WaterManagement = () => {
 
   return (
     <div className="water-body">
-      <GarbageHeader />
+      <WaterHeader />
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
