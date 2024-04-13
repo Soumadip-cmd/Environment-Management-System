@@ -5,7 +5,8 @@ const dotenv = require('dotenv');
 const Connection=require('./DataBase/Connection/Connection')
 dotenv.config();
 const cors = require('cors');
-const port = process.env.PORT || 8080;
+const path=require('path')
+const port = 8080;
 const communityRewardsRoute = require('./Routes/Community-Rewards-Claim');
 Connection();
 
@@ -28,6 +29,7 @@ app.use(cors({
 
 //All  Routes
 app.use('/', communityRewardsRoute);
+app.use(require(path.join(__dirname, "Routes/browse.js")));
 
 app.get('/', (req, res) => {
   res.json({ message: "Server running at port " + port });
