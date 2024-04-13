@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const DashboardBody = () => {
   return (
     <div className="container">
-    <div className='my-5'>
-      hello boy
-    </div></div>
-  )
-}
+      <div className="my-5">hello boy</div>
+    </div>
+  );
+};
 
-export default DashboardBody
+export default DashboardBody;
