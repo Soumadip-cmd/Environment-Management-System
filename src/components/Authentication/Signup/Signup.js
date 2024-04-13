@@ -33,7 +33,7 @@ const Signup = () => {
     if (answer.Success) {
       // console.log(answer)
       localStorage.setItem("iNote-Book[Tag]:", answer.token);
-      history.push("/home");
+      history.push("/");
       // showAlert('success','Successfully Sign In..')
       alert("Successfully Sign In..");
     } else {

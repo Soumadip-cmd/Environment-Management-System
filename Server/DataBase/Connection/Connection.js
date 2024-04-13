@@ -14,7 +14,7 @@ const Connection = async () => {
     const DB_NAME = process.env.DB_NAME;
     
     
-    const URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@evs.onjd1w0.mongodb.net/${DB_NAME}?retryWrites=true&w=majority&appName=EVS`;
+    const URL = `mongodb+srv://dassandipanbabu:M1TVJeP4ZthKkYQH@evs.onjd1w0.mongodb.net/Environmetal_Manegment_System?retryWrites=true&w=majority&appName=EVS`;
 
     try {
         await mongoose.connect(URL, {});
