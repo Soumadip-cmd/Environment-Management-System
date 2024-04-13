@@ -110,20 +110,7 @@ const WaterForm = () => {
           </div>
 
             </div>
-            <div className="col-sm-12 col-md-3">
-              <div className="mb-3">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="user_email"
-                  name="user_email"
-                  value={formData.user_email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
+         
             <div className="col-sm-12 col-md-3">
               <div className="mb-3">
                 <label htmlFor="sex">Gender</label>
