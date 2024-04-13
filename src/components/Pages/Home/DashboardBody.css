@@ -1,0 +1,46 @@
+/* Set background image */
+.background-container {
+  background-image: url('/public/pollution.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+}
+
+/* Set styling for card containers */
+.container1,
+.container2,
+.container3 {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 100px; /* Adjust margin as needed */
+}
+
+/* Set styling for individual cards */
+.card {
+  width: 18rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 75px;
+  background-color: #fff;
+  margin-top: auto;
+}
+
+.card-body {
+  text-align: center;
+  margin-top: auto;
+}
+
+.card-title {
+  color: #333;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #10365e;
+  margin-right: 10px;
+  margin: auto;
+}
