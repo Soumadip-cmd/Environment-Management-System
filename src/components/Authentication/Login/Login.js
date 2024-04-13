@@ -25,12 +25,12 @@ const Login = () => {
     if (json.Success) {
       //save the auth-token and redirect to yournote page
       localStorage.setItem("Auth-Token", json.Tag_Number);
-      history.push("/home");
+      history.push("/");
       // showAlert("success","Successfully Logged In..")
-      alert('Successfully Logged In..')
+      alert("Successfully Logged In..");
     } else {
       // showAlert("danger","Login Failed!!..Check Again..")
-      alert('Login Failed!!..Check Again..')
+      alert("Login Failed!!..Check Again..");
     }
   };
 
@@ -63,38 +63,36 @@ const Login = () => {
                         <div className="section text-center">
                           <h4 className="mb-4 pb-3">Log In</h4>
                           <form onSubmit={submit}>
-                          <div className="form-group">
-                            <input
-                              type="email"
-                              className="form-style"
-                              placeholder="Email"
-                              value={login.email}
-                              name="email"
-                              onChange={changing}
-                              required
-                            />
-                            <i className="input-icon uil uil-at"></i>
-                          </div>
-                          <div className="form-group mt-2">
-                            <input
-                              type="password"
-                              className="form-style"
-                              placeholder="Password"
-                              value={login.password}
-                              name="password"
-                              onChange={changing}
-                              required
-                            />
-                            <i className="input-icon uil uil-lock-alt"></i>
-                          </div>
-                          <Link to="/home" className="btn1 mt-4">
-                            Login
-                          </Link>
-                          <p className="mb-0 mt-4 text-center">
-                            <Link to="/" className="link">
-                              Forgot your password?
-                            </Link>
-                          </p>
+                            <div className="form-group">
+                              <input
+                                type="email"
+                                className="form-style"
+                                placeholder="Email"
+                                value={login.email}
+                                name="email"
+                                onChange={changing}
+                                required
+                              />
+                              <i className="input-icon uil uil-at"></i>
+                            </div>
+                            <div className="form-group mt-2">
+                              <input
+                                type="password"
+                                className="form-style"
+                                placeholder="Password"
+                                value={login.password}
+                                name="password"
+                                onChange={changing}
+                                required
+                              />
+                              <i className="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <button className="btn1 mt-4">Login</button>
+                            <p className="mb-0 mt-4 text-center">
+                              <Link to="/" className="link">
+                                Forgot your password?
+                              </Link>
+                            </p>
                           </form>
                         </div>
                       </div>

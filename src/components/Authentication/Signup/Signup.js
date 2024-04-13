@@ -8,11 +8,11 @@ const Signup = () => {
     password: "",
     ph: "",
   });
-  let history = useHistory(); 
+  let history = useHistory();
   const submit = async (e) => {
     e.preventDefault();
 
-    let { name, password, email,ph } = signup;
+    let { name, password, email, ph } = signup;
 
     name = Array.isArray(name) ? name[0] : name;
     password = Array.isArray(password) ? password[0] : password;
@@ -27,7 +27,7 @@ const Signup = () => {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify({ name, password, email, ph }),
+      body: JSON.stringify({ name, ph, email, password }),
     });
     let answer = await response.json();
     if (answer.Success) {
@@ -57,7 +57,10 @@ const Signup = () => {
                   type="text"
                   className="form-style"
                   placeholder="Full Name"
-                  name="name" value={signup.name} onChange={changing} required
+                  name="name"
+                  value={signup.name}
+                  onChange={changing}
+                  required
                 />
                 <i className="input-icon uil uil-user"></i>
               </div>
@@ -66,7 +69,10 @@ const Signup = () => {
                   type="tel"
                   className="form-style"
                   placeholder="Phone Number"
-                  name="ph" value={signup.ph} onChange={changing} required
+                  name="ph"
+                  value={signup.ph}
+                  onChange={changing}
+                  required
                 />
                 <i className="input-icon uil uil-phone"></i>
               </div>
@@ -75,7 +81,10 @@ const Signup = () => {
                   type="email"
                   className="form-style"
                   placeholder="Email"
-                  name="email" value={signup.email} onChange={changing} required
+                  name="email"
+                  value={signup.email}
+                  onChange={changing}
+                  required
                 />
                 <i className="input-icon uil uil-at"></i>
               </div>
@@ -84,14 +93,15 @@ const Signup = () => {
                   type="password"
                   className="form-style"
                   placeholder="Password"
-                  name="password" value={signup.password} onChange={changing} required
+                  name="password"
+                  value={signup.password}
+                  onChange={changing}
+                  required
                 />
                 <i className="input-icon uil uil-lock-alt"></i>
               </div>
+              <button className="btn1 mt-4">Register</button>
             </form>
-            <Link to="/" className="btn1 mt-4">
-              Register
-            </Link>
           </div>
         </div>
       </div>
