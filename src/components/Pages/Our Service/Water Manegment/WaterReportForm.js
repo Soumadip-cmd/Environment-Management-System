@@ -1,72 +1,76 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from "axios"
 
 
 const WaterForm = () => {
   const [formData, setFormData] = useState({
     user_name: '',
-    user_email: '',
+    
     user_sex: '',
     user_liveaddress: '',
     description: '',
     work_type: '',
     other_worktype: '',
-    date_time: ''
+    date_time: '',
+    
   });
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    const { name, value, type } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === "file" ? event.target.files[0] : value,
+    }));
   };
-
+const navigate=useHistory()
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const emptyFields = Object.entries(formData).filter(([key, value]) => value === '').map(([key]) => key);
-    if (emptyFields.length > 0) {
-      alert(`Please fill in the following fields: ${emptyFields.join(', ')}`);
-    } else {
-      try {
-        const response = await axios.post('http://localhost:8080/contributor-reward', formData);
-        console.log('Response Data:', response.data);
-        alert("Reward Claimed Successfully! Wait for approval :-)");
-        // Clear form data after successful submission
-        setFormData({
-          user_name: '',
-          user_email: '',
-          user_sex: '',
-          user_liveaddress: '',
-          description: '',
-          work_type: '',
-          other_worktype: '',
-          date_time: ''
-        });
-      } catch (error) {
-        console.error('Error:', error);
-        alert("Error submitting form. Please try again.");
+    try {
+      const formDataToSend = new FormData();
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
       }
+  
+      const response = await axios.post('http://localhost:8080/contributor', formDataToSend);
+      console.log('Response Data:', response.data);
+  
+    
+      setFormData({
+        user_name: "",
+        user_docx: "",
+       
+        user_sex: "",
+        user_liveaddress:"",
+        work_type: "",
+        other_worktype: "",
+        date_time: "",
+        description: "",
+       
+      });
+  
+      alert("Reward Claimed Successfully! Wait for approval :-)");
+    } catch (error) {
+      console.error('Error:', error);
+      alert("Error submitting form. Please try again.");
+      navigate.push('/paymentwater')
     }
   };
+  
+  
 
   const handleLiveLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-          window.open(url, '_blank');
-        },
-        (error) => {
-          console.error('Error getting current position:', error);
-          alert('Unable to retrieve live location.');
-        }
-      );
+      navigator.geolocation.getCurrentPosition((position) => {
+        const location = `${position.coords.latitude}, ${position.coords.longitude}`;
+        setFormData((prevData) => ({
+          ...prevData,
+          user_liveaddress: location,
+        }));
+        alert("User Live location fetched successfully :-)")
+      });
     } else {
-      console.error('Geolocation is not supported by this browser.');
-      alert('Geolocation is not supported by this browser.');
+      alert("Geolocation is not supported by this browser.");
     }
   };
 
@@ -195,6 +199,7 @@ const WaterForm = () => {
                 required
               />
             </div>
+           
             <div className="col-sm-12 col-md-3">
               <label>Action</label>
               <div className="d-flex">

@@ -12,8 +12,7 @@ const RewardsClaimSchema = new mongoose.Schema({
   },
   user_email: {
     type: String,
-    required: true,
-    unique: true 
+    
   },
   user_sex: {
     type: String,
