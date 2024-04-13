@@ -49,7 +49,7 @@ const CommunityRewards = () => {
 
     fetchData(); 
   }, []);
-
+ 
   const handleChange = (event) => {
     const { name, value, type } = event.target;
     setFormData((prevData) => ({
@@ -125,6 +125,7 @@ const CommunityRewards = () => {
   
         alert("Reward Claimed Successfully! Wait for approval :-)");
         console.log(newId);
+       
       }
     } catch (error) {
       console.error('Error:', error);
