@@ -1,8 +1,20 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 .small-profile{
     height: 55px;
     width: 55px;
     border-radius: 50%;
     background: #c0bbbb;
+}
+.small-profile2{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background: #c0bbbb;
+    margin-left: 60px;
+    margin-right: 6px;
 }
 .garbagemainBody{
     border-radius: 7px;
@@ -24,4 +36,29 @@
     border-radius: 35px;
     width: 1536px;
     height: 500px;
+}
+.btn-fetch{
+    position: absolute;
+    bottom: 3.2px;
+    right: 7px;
+    border-radius: 15px;
+}
+.from-head{
+    font-family: "Noto Sans Old Persian", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+.extra-camera{
+    background: #8080808c;
+}
+.description-style{
+    font-family: "Pacifico", cursive;
+    font-weight: 300;
+    font-size: 20px;
+}
+.title-extra{
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 }

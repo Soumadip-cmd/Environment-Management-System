@@ -12,6 +12,9 @@ const CommunityRewards = () => {
   const [showForm, setShowForm] = useState(false);
   const[showTrack,setShowTrackForm]= useState(false);
   const [statusData, setStatusData] = useState({});
+  const [approvedRewards, setApprovedRewards] = useState([]);
+ 
+  // const [showRewardMessage, setShowRewardMessage] = useState(false);
   const [formData, setFormData] = useState({
     user_name: "",
     user_docx: "", 
@@ -57,7 +60,30 @@ const CommunityRewards = () => {
       [name]: type === "file" ? event.target.files[0] : value,
     }));
   };
-
+  const handleGetRewards = async () => {
+    try {
+      const response = await axios("http://localhost:8080/rewards-claim");
+      const status = response.data;
+  
+     
+      const approvedRewards = status.filter(item => item.status === "Approved");
+      setApprovedRewards(approvedRewards);
+      
+      console.log("Approved Rewards:", approvedRewards);
+      
+    } catch (error) {
+      console.error('Error getting rewards:', error);
+      alert("Error getting rewards. Please try again.");
+    }
+  };
+  
+    
+  
+  
+  
+  
+  
+  
   const handleLiveLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -138,15 +164,17 @@ const CommunityRewards = () => {
   
 
     return (
-      <div className="container mt-5">
+      <div className="container1 mt-5">
         <div className="border p-4 rounded">
-          <h2>Water Leakage Reporting</h2>
+          <h2>Reward System </h2>
+          <div className='btn-group'>
           <button
             className="btn btn-danger mt-3 me-3"
             onClick={() => setShowForm(true)}
           >
             Cliam Your Rewards
           </button>
+
           {showForm && (
             <form onSubmit={handleSubmit} >
             <div className="row">
@@ -364,7 +392,7 @@ const CommunityRewards = () => {
               }}>Submit</button>
                </div>
                 </div>
-    </div>
+            </div>
             </form>
           )}
           {!showForm && (
@@ -385,11 +413,28 @@ const CommunityRewards = () => {
             ))}
           </div>
         )}
-<button className="btn btn-info mt-3 ms-3">Receive Updates</button>
+        <button className="btn btn-info mt-3 ms-3" onClick={handleGetRewards}>
+          Get Your Rewards
+        </button>
+        {approvedRewards.length > 0 && (
+          <div>
+            <h3>Approved Rewards:</h3>
+            <ul>
+              {approvedRewards.map(reward => (
+                <li key={reward._id}>ID: {reward._id}, Status: {reward.status}</li>
+              ))}
+            </ul>
+            <button className='btn btn-succes'> Download Your Certificate</button>
+          </div>
+        )}
+      
+       
+      
 
 
           
         </div>
+      </div>
       </div>
   )
 }
