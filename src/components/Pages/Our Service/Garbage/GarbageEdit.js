@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import CameraContext from "../context/CameraContext";
+import CameraContext from "./context/CameraContext";
 
 const GarbageEdit = () => {
   const refcls = useRef(null);
@@ -16,6 +16,9 @@ const GarbageEdit = () => {
   const changing = (event) => {
     setGarbageimg(event.target.files[0]);
   };
+  const cameraclick=()=>{
+    refcamera.current.click()
+  }
 
   return (
     <>
@@ -120,7 +123,7 @@ const GarbageEdit = () => {
                     className="container mb-3 d-flex justify-content-center"
                     alt="garbageimg"
                     style={image_body}
-                    src={img_src}
+                    // src={img_src}
                     id="view0"
                   />
                 )}
