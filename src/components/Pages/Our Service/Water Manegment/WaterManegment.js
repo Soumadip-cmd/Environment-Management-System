@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import WaterHeader from './WaterHeader'; // Import the WaterHeader component
+import WaterHeader from './WaterHeader'; 
 import axios from 'axios';
 import './WaterManagement.css';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ const WaterManagement = () => {
   return (
     <div className="water-body">
       <h1 className="mt-3 mb-4 text-center">Water Leakage Problems</h1>
-      <WaterHeader /> {/* Include the WaterHeader component */}
+      <WaterHeader /> 
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2 className="mb-4">Water Leakage Reporting</h2>

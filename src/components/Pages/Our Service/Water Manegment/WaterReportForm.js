@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios"
+
 
 const WaterForm = () => {
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
     user_sex: '',
-    user_address: '',
-    user_city: '',
-    user_state: '',
-    user_district: '',
-    user_zip: '',
-    user_emergencyphneno: '',
     user_liveaddress: '',
     description: '',
     work_type: '',
@@ -27,15 +23,31 @@ const WaterForm = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission logic here
     const emptyFields = Object.entries(formData).filter(([key, value]) => value === '').map(([key]) => key);
     if (emptyFields.length > 0) {
       alert(`Please fill in the following fields: ${emptyFields.join(', ')}`);
     } else {
-      console.log(formData);
-      // Submit the form
+      try {
+        const response = await axios.post('http://localhost:8080/contributor-reward', formData);
+        console.log('Response Data:', response.data);
+        alert("Reward Claimed Successfully! Wait for approval :-)");
+        // Clear form data after successful submission
+        setFormData({
+          user_name: '',
+          user_email: '',
+          user_sex: '',
+          user_liveaddress: '',
+          description: '',
+          work_type: '',
+          other_worktype: '',
+          date_time: ''
+        });
+      } catch (error) {
+        console.error('Error:', error);
+        alert("Error submitting form. Please try again.");
+      }
     }
   };
 
@@ -59,9 +71,9 @@ const WaterForm = () => {
   };
 
   const handleCancel = () => {
-    // Handle cancel button logic here
     console.log('Form submission canceled');
   };
+
 
   return (
     <div className="container mt-5">
@@ -75,7 +87,7 @@ const WaterForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  id="name"
+                  id="user_name"
                   name="user_name"
                   value={formData.user_name}
                   onChange={handleChange}
@@ -84,18 +96,19 @@ const WaterForm = () => {
               </div>
             </div>
             <div className="col-sm-12 col-md-3">
-              <div className="mb-3">
-                <label htmlFor="incidentPhoto">Upload Your Contribution Proof Image</label>
-                <input
-                  type="file"
-                  className="form-control"
-                  id="user_docx"
-                  name="user_docx"
-                  accept=".docx,.pdf,.png,.jpg,.jpeg,.gif"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+            <div className="mb-3">
+            <label htmlFor="incidentPhoto">Upload Your Contribution Proof Image</label>
+            <input
+              type='file'
+              className="form-control"
+              id="user_docx"
+              name="user_docx"
+              accept=".docx,.pdf,.png,.jpg,.jpeg,.gif"
+              onChange={handleChange}
+              required
+            />
+          </div>
+
             </div>
             <div className="col-sm-12 col-md-3">
               <div className="mb-3">
@@ -103,7 +116,7 @@ const WaterForm = () => {
                 <input
                   type="email"
                   className="form-control"
-                  id="email"
+                  id="user_email"
                   name="user_email"
                   value={formData.user_email}
                   onChange={handleChange}
@@ -116,7 +129,7 @@ const WaterForm = () => {
                 <label htmlFor="sex">Gender</label>
                 <select
                   className="form-control"
-                  id="sex"
+                  id="user_sex"
                   name="user_sex"
                   value={formData.user_sex}
                   onChange={handleChange}
@@ -138,7 +151,7 @@ const WaterForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  id="liveLocation"
+                  id="user_liveLocation"
                   name="user_liveaddress"
                   value={formData.user_liveaddress}
                   onChange={handleChange}
