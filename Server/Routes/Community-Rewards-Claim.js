@@ -47,13 +47,14 @@ router.post('/rewards-claim', RewardWorkProof.single("user_docx"), async (req, r
         res.status(201).json({
             message: 'Reward Claim Member added successfully',
             success: true,
-            newRewardUser
+            newRewardUser 
         });
     } catch (error) {
         console.error('Error adding reward claim member:', error);
         res.status(500).json({ error: 'Failed to add new reward claim member' });
     }
 });
+
 router.get('/rewards-claim', (req, res) => {
     RewardUserModel.find({})
         .then((users) => {
