@@ -100,7 +100,7 @@
 
 .air-quality-input button:hover {
   background: #e01414;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .air-quality-input .location-btn {
@@ -165,12 +165,12 @@
   width: calc(100% / 5);
   background: #e68906;
   border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Increased shadow */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
   transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
 .card h3 {

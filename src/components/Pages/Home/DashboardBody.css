@@ -1,25 +1,25 @@
-/* Set background image */
+
 .background-container {
   background-image: url('/public/pollution.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   display: flex;
-  justify-content: center; /* Align items horizontally */
-  align-items: center; /* Align items vertically */
+  justify-content: center; 
+  align-items: center; 
 }
 
-/* Set styling for card containers */
+
 .container1,
 .container2,
 .container3 {
   display: inline-block;
   justify-content: center;
   align-items: center;
-  margin: 20px 100px; /* Adjust margin as needed */
+  margin: 20px 100px; 
 }
 
-/* Set styling for individual cards */
+
 .card {
   width: 18rem;
   border: 1px solid #ccc;
