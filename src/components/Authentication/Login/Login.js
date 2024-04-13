@@ -25,7 +25,7 @@ const Login = () => {
     if (json.Success) {
       //save the auth-token and redirect to yournote page
       localStorage.setItem("Auth-Token", json.Tag_Number);
-      history.push("/");
+      history.push("/home");
       // showAlert("success","Successfully Logged In..")
       alert("Successfully Logged In..");
     } else {
