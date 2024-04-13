@@ -5,22 +5,8 @@ import exifr from 'exifr'; // Import exifr for parsing EXIF data
 import './WaterManagement.css';
 
 const WaterManagement = () => {
-  const [randomImages, setRandomImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [liveLocation, setLiveLocation] = useState(null);
-
-  useEffect(() => {
-    const fetchRandomImages = async () => {
-      try {
-        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
-        setRandomImages([response.request.responseURL]);
-      } catch (error) {
-        console.error('Error fetching random images:', error);
-      }
-    };
-
-    fetchRandomImages();
-  }, []);
 
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
@@ -85,11 +71,6 @@ const WaterManagement = () => {
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
-          <div className="random-images">
-            {randomImages.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid mb-3" />
-            ))}
-          </div>
           <div className="mb-3">
             <label htmlFor="report">Write your water leakage problem:</label>
             <textarea className="form-control" id="report" rows="3"></textarea>

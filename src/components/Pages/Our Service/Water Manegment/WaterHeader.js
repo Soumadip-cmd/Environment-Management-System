@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const WaterHeader = () => {
+  const [randomImage, setRandomImage] = useState(null);
+
+  useEffect(() => {
+    const fetchRandomImage = async () => {
+      try {
+        const response = await axios.get(
+          "https://source.unsplash.com/random/1536x500?/water"
+        );
+        setRandomImage(response.request.responseURL);
+      } catch (error) {
+        console.error("Error fetching random image:", error);
+      }
+    };
+
+    fetchRandomImage();
+  }, []);
+
   return (
     <>
       <header className="py-3" style={{ background: "#781e1e" }}>
@@ -34,6 +52,17 @@ const WaterHeader = () => {
                 </svg>
               </span>
             </form>
+
+            <div className="random-image mx-auto mx-lg-0 mb-3">
+              {randomImage && (
+                <img
+                  src={randomImage}
+                  alt="Random"
+                  className="img-fluid"
+                  style={{ borderRadius: "10px" }}
+                />
+              )}
+            </div>
 
             <ul className="nav col-12 col-lg-auto mb-2 mb-lg-0 me-lg-3 justify-content-center">
               <li>
