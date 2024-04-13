@@ -62,22 +62,17 @@ const CommunityRewards = () => {
   };
   const handleGetRewards = async () => {
     try {
-      const response = await axios("http://localhost:8080/rewards-claim");
+      const response = await axios.get("http://localhost:8080/rewards-claim");
+      console.log("Response Data:", response.data); // Log the response data
       const status = response.data;
-  
-     
       const approvedRewards = status.filter(item => item.status === "Approved");
       setApprovedRewards(approvedRewards);
-      
       console.log("Approved Rewards:", approvedRewards);
-      
     } catch (error) {
       console.error('Error getting rewards:', error);
       alert("Error getting rewards. Please try again.");
     }
   };
-  
-    
   
   
   

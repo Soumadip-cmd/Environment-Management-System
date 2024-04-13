@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link ,useHistory} from 'react-router-dom';
-
+//Customer
 const WaterReportForm2 = () => {
   const [formData, setFormData] = useState({
     user_name: '',

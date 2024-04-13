@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+<<<<<<< HEAD
     "concurrently": "^8.2.2",
+=======
+>>>>>>> 0dac6ce09aba82c438a2482bdb3127a0113ddd3e
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
