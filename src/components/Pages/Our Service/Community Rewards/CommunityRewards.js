@@ -164,7 +164,7 @@ const CommunityRewards = () => {
   
 
     return (
-      <div className="container mt-5">
+      <div className="container1 mt-5">
         <div className="border p-4 rounded">
           <h2>Reward System </h2>
           <button
