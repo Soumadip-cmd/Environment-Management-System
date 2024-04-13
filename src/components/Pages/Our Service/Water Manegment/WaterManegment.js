@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
-import WaterHeader from './WaterHeader';
+import React, { useState, useEffect } from 'react';
+import WaterHeader from './WaterHeader'; // Import the WaterHeader component
 import axios from 'axios';
-import exifr from 'exifr';
-import CameraContext from './context/CameraContext';
-import CameraProfile from './Camera/CameraProfile';
-import CameraBg from './Camera/CameraBg';
-import GarbagemainBody from './GarbagemainBody';
+import exifr from 'exifr'; // Import exifr for parsing EXIF data
+import './WaterManagement.css'; // Change here
 
 const WaterManagement = () => {
   const [randomImages, setRandomImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [liveLocation, setLiveLocation] = useState(null);
-  const { image, bgimage1 } = useContext(CameraContext);
 
   useEffect(() => {
     const fetchRandomImages = async () => {
@@ -42,14 +38,16 @@ const WaterManagement = () => {
   const hasLiveLocation = async (file) => {
     try {
       const exifData = await exifr.parse(file);
+      // Check if the exifData contains GPS coordinates
       if (exifData && exifData.latitude && exifData.longitude) {
         return { latitude: exifData.latitude, longitude: exifData.longitude };
       } else {
+        // If no GPS coordinates in the image, try to get device's current location
         return getLocation();
       }
     } catch (error) {
       console.error('Error parsing EXIF data:', error);
-      return null;
+      return null; // Unable to parse EXIF data or get device location
     }
   };
 
@@ -72,6 +70,7 @@ const WaterManagement = () => {
   };
 
   const handleShowLocation = () => {
+    // Open Google Maps with the live location
     if (liveLocation) {
       const { latitude, longitude } = liveLocation;
       window.open(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`, '_blank');
@@ -82,7 +81,7 @@ const WaterManagement = () => {
 
   return (
     <div className="water-body">
-      <WaterHeader />
+      <WaterHeader /> {/* Include the WaterHeader component */}
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
@@ -117,9 +116,6 @@ const WaterManagement = () => {
             </button>
           )}
         </div>
-      </div>
-      <div className="container my-5">
-        <GarbagemainBody />
       </div>
     </div>
   );
