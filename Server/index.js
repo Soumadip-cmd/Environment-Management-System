@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require('dotenv');
 const Connection=require('./DataBase/Connection/Connection')
 dotenv.config();
+const path=require('path')
 const cors = require('cors');
 
 const port = 8080;
@@ -27,7 +28,7 @@ app.use(cors({
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
+app.use(require(path.join(__dirname, "Routes/browse.js")));
 //All  Routes
 app.use('/', communityRewardsRoute);
 app.use('/',Contributor)
