@@ -167,9 +167,9 @@ const CommunityRewards = () => {
       <div className="container1 mt-5">
         <div className="border p-4 rounded">
           <h2>Reward System </h2>
-          <div className='btn-group'>
+          <div className='groupie1'>
           <button
-            className="btn btn-danger mt-3 me-3"
+            className="btn btn-danger mt-3 me-31"
             onClick={() => setShowForm(true)}
           >
             Cliam Your Rewards
@@ -180,7 +180,7 @@ const CommunityRewards = () => {
             <div className="row">
                 <div className="col-sm-12 col-md-3 col-lg-3">
                  
-                  <div className="mb-3">
+                  <div className="mboss">
                     <label htmlFor="name">Full Name</label>
                     <input
                       type="text"
@@ -194,7 +194,7 @@ const CommunityRewards = () => {
                   </div>
                   </div>
                   <div className="col-sm-12 col-md-3 col-lg-3">
-                  <div className="mb-3">
+                  <div className="mboss">
                     <label htmlFor="incidentPhoto">Upload Your Contribution Proof Image</label>
                     <input
                       type="file"
@@ -240,7 +240,7 @@ const CommunityRewards = () => {
                       </select>
               </div>
               <div className='col-sm-12 col-md-3 col-lg-3'>
-              <div className="mb-3">
+              <div className="mboss">
                     <label htmlFor="address">Address</label>
                     <input
                       type="text"
@@ -253,7 +253,7 @@ const CommunityRewards = () => {
                     />
                   </div>
               </div>
-              <div className="col-sm-12 col-md-3 mb-3">
+              <div className="col-sm-12 col-md-3 mboss">
                       <label htmlFor="city">City</label>
                       <input
                         type="text"
@@ -267,7 +267,7 @@ const CommunityRewards = () => {
                     </div>
              </div>
              <div className='row'>
-              <div className='col-sm-12 col-md-3 mb-3'>
+              <div className='col-sm-12 col-md-3 mboss'>
               <label htmlFor="state">State</label>
                       <input
                         type="text"
@@ -279,7 +279,7 @@ const CommunityRewards = () => {
                         required
                       />
               </div>
-              <div className='col-sm-12 col-md-3 mb-3'>
+              <div className='col-sm-12 col-md-3 mboss'>
               <label htmlFor="district">District</label>
                       <input
                         type="text"
@@ -291,7 +291,7 @@ const CommunityRewards = () => {
                         required
                       />
               </div>
-              <div className='col-sm-12 col-md-3 mb-3'>
+              <div className='col-sm-12 col-md-3 mboss'>
               <label htmlFor="zip">Pin Code</label>
                       <input
                         type="text"
@@ -305,7 +305,7 @@ const CommunityRewards = () => {
               </div>
              </div>
              <div className='row'>
-              <div className='col-sm-12 col-md-3 mb-3'>
+              <div className='col-sm-12 col-md-3 mboss'>
               <label htmlFor="emergencyPhone">Emergency Contact Number</label>
                     <input
                       type="tel"
@@ -317,8 +317,8 @@ const CommunityRewards = () => {
                       required
                     />
               </div>
-              <div className='col-sm-12 col-md-3 mb-3'>
-              <div className="mb-3">
+              <div className='col-sm-12 col-md-3 mboss'>
+              <div className="mboss">
                     <label htmlFor="liveLocation">Live Location</label>
                     <input
                       type="text"
@@ -333,7 +333,7 @@ const CommunityRewards = () => {
                   </div>
                   
               </div>
-              <div className='col-sm-12 col-md-3 mb-3'>
+              <div className='col-sm-12 col-md-3 mboss'>
               <label htmlFor="customTextarea" className="form-label">Describe Your Problem</label>
               <textarea className="form-control" id="description" rows="3" name="description" value={formData.description} onChange={handleChange}></textarea>
             </div>
@@ -342,7 +342,7 @@ const CommunityRewards = () => {
               
              </div>
              <div className='row'>
-      <div className='col-sm-12 col-md-3 mb-3'>
+      <div className='col-sm-12 col-md-3 mboss'>
         <label htmlFor='work_type'>Select Your Contribution Type </label>
         <select
           className="form-control"
@@ -359,7 +359,7 @@ const CommunityRewards = () => {
         </select>
       </div>
       {formData.work_type === 'other' && (
-        <div className='col-sm-12 col-md-3 mb-3'>
+        <div className='col-sm-12 col-md-3 mboss'>
           <label htmlFor='other_worktype'>If Other type here <span style={{ color:"red" }}>*</span></label>
           <input
             type="text"
@@ -371,7 +371,7 @@ const CommunityRewards = () => {
           />
         </div>
       )}
-      <div className='col-sm-12 col-md-3 mb-3'>
+      <div className='col-sm-12 col-md-3 mboss'>
               <label htmlFor="date">Contribution Date & Time </label>
                     <input
                       type="datetime-local"
@@ -383,7 +383,7 @@ const CommunityRewards = () => {
                       required
                     />
               </div>
-              <div className='col-sm-12 col-md-3 mb-3'>
+              <div className='col-sm-12 col-md-3 mboss'>
               <label>Action </label>
               <div className="d-flex  ">
              <button type="button" className="btn btn-secondary " onClick={handleCancel}>Cancel</button>
