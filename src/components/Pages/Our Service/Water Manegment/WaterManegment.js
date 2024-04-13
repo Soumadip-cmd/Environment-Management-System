@@ -1,12 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import WaterHeader from './WaterHeader'; // Import the WaterHeader component
+import React, { useState, useEffect, useContext } from 'react';
+import WaterHeader from './WaterHeader';
 import axios from 'axios';
-import exifr from 'exifr'; // Import exifr for parsing EXIF data
-import './WaterManagement.css';
+import exifr from 'exifr';
+import GarbageHeader from './GarbageHeader';
+import CameraContext from './context/CameraContext';
+import CameraProfile from './Camera/CameraProfile';
+import CameraBg from './Camera/CameraBg';
+import GarbagemainBody from './GarbagemainBody';
 
 const WaterManagement = () => {
+  const [randomImages, setRandomImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [liveLocation, setLiveLocation] = useState(null);
+  const { image, bgimage1 } = useContext(CameraContext);
+
+  useEffect(() => {
+    const fetchRandomImages = async () => {
+      try {
+        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
+        setRandomImages([response.request.responseURL]);
+      } catch (error) {
+        console.error('Error fetching random images:', error);
+      }
+    };
+
+    fetchRandomImages();
+  }, []);
 
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
@@ -24,16 +43,14 @@ const WaterManagement = () => {
   const hasLiveLocation = async (file) => {
     try {
       const exifData = await exifr.parse(file);
-      // Check if the exifData contains GPS coordinates
       if (exifData && exifData.latitude && exifData.longitude) {
         return { latitude: exifData.latitude, longitude: exifData.longitude };
       } else {
-        // If no GPS coordinates in the image, try to get device's current location
         return getLocation();
       }
     } catch (error) {
       console.error('Error parsing EXIF data:', error);
-      return null; // Unable to parse EXIF data or get device location
+      return null;
     }
   };
 
@@ -56,7 +73,6 @@ const WaterManagement = () => {
   };
 
   const handleShowLocation = () => {
-    // Open Google Maps with the live location
     if (liveLocation) {
       const { latitude, longitude } = liveLocation;
       window.open(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`, '_blank');
@@ -67,10 +83,15 @@ const WaterManagement = () => {
 
   return (
     <div className="water-body">
-      <WaterHeader /> {/* Include the WaterHeader component */}
+      <GarbageHeader />
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
+          <div className="random-images">
+            {randomImages.map((imageUrl, index) => (
+              <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid mb-3" />
+            ))}
+          </div>
           <div className="mb-3">
             <label htmlFor="report">Write your water leakage problem:</label>
             <textarea className="form-control" id="report" rows="3"></textarea>
@@ -97,6 +118,9 @@ const WaterManagement = () => {
             </button>
           )}
         </div>
+      </div>
+      <div className="container my-5">
+        <GarbagemainBody />
       </div>
     </div>
   );

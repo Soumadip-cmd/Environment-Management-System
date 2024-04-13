@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const WaterHeader = () => {
+const GarbageHeader = () => {
   const [randomImage, setRandomImage] = useState(null);
 
   useEffect(() => {
     const fetchRandomImage = async () => {
       try {
-        const response = await axios.get(
-          "https://source.unsplash.com/random/1536x500?/water"
-        );
+        const response = await axios.get('https://source.unsplash.com/random/1536x500?/water');
         setRandomImage(response.request.responseURL);
       } catch (error) {
-        console.error("Error fetching random image:", error);
+        console.error('Error fetching random image:', error);
       }
     };
 
@@ -36,8 +33,8 @@ const WaterHeader = () => {
               <span style={{ position: "relative" }}>
                 <input
                   type="search"
-                  className="form-control srch-style text-white px-4"
-                  placeholder="Search Water Management"
+                  className="form-control srch-style1 text-white px-4"
+                  placeholder="Search EVS-Management"
                   aria-label="Search"
                 />
                 <svg
@@ -53,21 +50,10 @@ const WaterHeader = () => {
               </span>
             </form>
 
-            <div className="random-image mx-auto mx-lg-0 mb-3">
-              {randomImage && (
-                <img
-                  src={randomImage}
-                  alt="Random"
-                  className="img-fluid"
-                  style={{ borderRadius: "10px" }}
-                />
-              )}
-            </div>
-
             <ul className="nav col-12 col-lg-auto mb-2 mb-lg-0 me-lg-3 justify-content-center">
               <li>
                 <Link to="/" className="nav-link px-5 link-light extra1">
-                  <b>User's Page</b>
+                  <b>Soumadip's Page</b>
                 </Link>
               </li>
               <li>
@@ -91,6 +77,8 @@ const WaterHeader = () => {
                   </svg>
                 </Link>
               </li>
+              
+              
             </ul>
             <div className="dropdown text-end px-2">
               <Link
@@ -140,8 +128,13 @@ const WaterHeader = () => {
           </div>
         </div>
       </header>
+      {randomImage && (
+        <div className="random-image-header">
+          <img src={randomImage} alt="Random" className="img-fluid" />
+        </div>
+      )}
     </>
   );
 };
 
-export default WaterHeader;
+export default GarbageHeader;
