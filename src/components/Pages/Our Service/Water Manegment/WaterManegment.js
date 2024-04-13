@@ -40,6 +40,7 @@ const WaterManagement = () => {
               <li><a className="dropdown-item" href="#" target="_blank" rel="noopener noreferrer">Customer</a></li>
             </ul>
           </div>
+          <iframe style={{ display: 'none' }} title="Water Form" src="C:\Users\bisha\Documents\Environment-Management-System\src\components\Pages\Our Service\Water Manegment\WaterForm.js"></iframe>
         </div>
       </div>
     </div>
