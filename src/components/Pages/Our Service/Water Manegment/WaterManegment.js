@@ -85,6 +85,15 @@ const WaterManagement = () => {
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Water Leakage Reporting</h2>
+          <div className="dropdown mb-3">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              Choose if you are a Contributor or a Customer
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a className="dropdown-item" href="https://contributorform.com" target="_blank">Contributor</a></li>
+              <li><a className="dropdown-item" href="https://customerform.com" target="_blank">Customer</a></li>
+            </ul>
+          </div>
           <div className="random-images">
             {randomImages.map((imageUrl, index) => (
               <img key={index} src={imageUrl} alt={`Random Image ${index}`} className="img-fluid mb-3" />
