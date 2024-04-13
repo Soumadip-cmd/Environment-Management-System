@@ -167,12 +167,14 @@ const CommunityRewards = () => {
       <div className="container mt-5">
         <div className="border p-4 rounded">
           <h2>Reward System </h2>
+          <div className='btn-group'>
           <button
             className="btn btn-danger mt-3 me-3"
             onClick={() => setShowForm(true)}
           >
             Cliam Your Rewards
           </button>
+
           {showForm && (
             <form onSubmit={handleSubmit} >
             <div className="row">
@@ -432,6 +434,7 @@ const CommunityRewards = () => {
 
           
         </div>
+      </div>
       </div>
   )
 }
