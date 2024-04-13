@@ -12,6 +12,11 @@ import Blog from "./components/Pages/Blog/Blog";
 import GarbageManagement from "./components/Pages/Our Service/Garbage/GarbageManagement";
 import CameraState from "./components/Pages/Our Service/Garbage/context/CameraState";
 import Admin from './components/Admin/Admin';
+import WaterReportForm2 from "./components/Pages/Our Service/Water Manegment/WaterReportForm2";
+
+import WaterReportForm from "./components/Pages/Our Service/Water Manegment/WaterReportForm";
+import PaymentWater from "./components/Pages/Our Service/Water Manegment/PaymentWater";
+import PaymentWater2 from "./components/Pages/Our Service/Water Manegment/PaymentWater2";
 function App() {
   return (
     <div>
@@ -21,7 +26,14 @@ function App() {
             <Route exact path="/home">
               <Home />
             </Route>
-
+            <Route exact path="/paymentwater">
+              <PaymentWater/>
+            </Route>
+            
+            <Route exact path="/paymentwater2">
+              <PaymentWater2/>
+            </Route>
+            
             <Route exact path="/">
               <Login />
             </Route>
@@ -52,6 +64,9 @@ function App() {
             <Route exact path="/waterleakage">
               <WaterManegment />
             </Route>
+            <Route exact path="/waterreportform2">
+              <WaterReportForm/>
+            </Route>
 
             <Route exact path="/airquality">
               <AirQuality />
@@ -59,6 +74,9 @@ function App() {
             
             <Route exact path="/admin">
               <Admin />
+            </Route>
+            <Route exact path="/waterreportform">
+              <WaterReportForm/>
             </Route>
           </Switch>
         </Router>

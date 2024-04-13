@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WaterHeader from './WaterHeader'; // Import the WaterHeader component
 import axios from 'axios';
 import './WaterManagement.css';
+import { Link } from 'react-router-dom';
 
 const WaterManagement = () => {
   const [randomImages, setRandomImages] = useState([]);
@@ -36,11 +37,12 @@ const WaterManagement = () => {
               Choose if you are a contributor or a customer
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a className="dropdown-item" href="#" target="_blank" rel="noopener noreferrer">Contributor</a></li>
-              <li><a className="dropdown-item" href="#" target="_blank" rel="noopener noreferrer">Customer</a></li>
+              <li>
+                <Link className="dropdown-item" to="/waterreportform" target="_blank" rel="noopener noreferrer">Contributor</Link>
+              </li>
+              <li><Link className="dropdown-item" to="/waterreportform2" target="_blank" rel="noopener noreferrer">Customer</Link></li>
             </ul>
           </div>
-          <iframe style={{ display: 'none' }} title="Water Form" src="C:\Users\bisha\Documents\Environment-Management-System\src\components\Pages\Our Service\Water Manegment\WaterForm.js"></iframe>
         </div>
       </div>
     </div>
