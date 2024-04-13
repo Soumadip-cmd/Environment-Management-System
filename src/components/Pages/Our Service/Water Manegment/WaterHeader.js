@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const WaterHeader = () => {
   return (
@@ -18,7 +18,7 @@ const WaterHeader = () => {
               <span style={{ position: "relative" }}>
                 <input
                   type="search"
-                  className="form-control srch-style text-white px-4"
+                  className="form-control srch-style1 text-white px-4"
                   placeholder="Search Water Management"
                   aria-label="Search"
                 />

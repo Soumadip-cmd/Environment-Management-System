@@ -26,8 +26,8 @@ const AirQuality = () => {
       if (data && data.status === "ok") {
         setCurrentAirQuality(data.data);
         setAirQualityForecast(data.data.forecast.daily);
-        setErrorAlert(''); 
-        setAirQualityStatus(getAirQualityStatus(data.data.iaqi)); 
+        setErrorAlert('');
+        setAirQualityStatus(getAirQualityStatus(data.data.iaqi));
       } else {
         console.error('Error: No air quality data found for this location.');
         setErrorAlert("Error: No air quality data found for this location.");
@@ -94,20 +94,20 @@ const AirQuality = () => {
       <h1 className='airheading'>Air Quality Dashboard</h1>
       <div className="container" id="main-container">
         <div className="air-quality-input">
-         
-            <>
-              <input
-                type="text"
-                value={cityInput}
-                onChange={handleCityInputChange}
-                onKeyPress={handleKeyPress}
-                placeholder="E.g., Jadavpur, Kolkata, India"
-              />
-              <button onClick={handleSearchButtonClick} className="search-btn">Search</button>
-              <div className="separator"></div>
-              <button type="button" className="btn btn-success" onClick={handleGeoLocation}>Live Location</button>
-            </>
-          
+
+          <>
+            <input
+              type="text"
+              value={cityInput}
+              onChange={handleCityInputChange}
+              onKeyPress={handleKeyPress}
+              placeholder="E.g., Jadavpur, Kolkata, India"
+            />
+            <button onClick={handleSearchButtonClick} className="search-btn">Search</button>
+            <div className="separator"></div>
+            <button type="button" className="btn btn-success" onClick={handleGeoLocation}>Live Location</button>
+          </>
+
         </div>
         <div className="air-quality-data">
           {errorAlert && <p>{errorAlert}</p>}
@@ -118,10 +118,10 @@ const AirQuality = () => {
               {currentAirQuality && (
                 <>
                   <div className="details">
-                    <h2>{currentAirQuality.city.name} ({currentAirQuality.time.s.split(" ")[0]})</h2>
+                    {/* <h2>{currentAirQuality.city.name} ({currentAirQuality.time.s.split(" ")[0]})</h2>
                     {Object.entries(currentAirQuality.iaqi).map(([key, value]) => (
                       <h6 key={key}>{key.toUpperCase()}: {value.v} µg/m³</h6>
-                    ))}
+                    ))} */}
                   </div>
                   <div className="air-quality-status">
                     <h2>Air Quality Status of Your City</h2>
