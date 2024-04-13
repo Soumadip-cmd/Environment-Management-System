@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const Connection=require('./DataBase/Connection/Connection')
 dotenv.config();
 const cors = require('cors');
-const path=require('path')
+
 const port = 8080;
 const communityRewardsRoute = require('./Routes/Community-Rewards-Claim');
 const Contributor= require('./Routes/Contributor');
