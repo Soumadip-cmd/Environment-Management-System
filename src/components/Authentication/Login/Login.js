@@ -1,5 +1,5 @@
 import React from "react";
-import './Login.css';
+import "./Login.css";
 import Signup from "../Signup/Signup";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -44,10 +44,7 @@ const Login = () => {
                             />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
-                          <Link
-                            to="/home"
-                            className="btn1 mt-4"
-                          >
+                          <Link to="/home" className="btn1 mt-4">
                             Login
                           </Link>
                           <p className="mb-0 mt-4 text-center">
@@ -58,7 +55,7 @@ const Login = () => {
                         </div>
                       </div>
                     </div>
-                   <Signup/>
+                    <Signup />
                   </div>
                 </div>
               </div>
