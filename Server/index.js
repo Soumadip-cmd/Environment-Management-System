@@ -30,7 +30,7 @@ app.use(cors({
 
 //All  Routes
 app.use('/', communityRewardsRoute);
-
+app.use('/',Contributor)
 app.get('/', (req, res) => {
   res.json({ message: "Server running at port " + port });
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import {  useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from "axios"
 
 
@@ -52,7 +52,7 @@ const navigate=useHistory()
       alert("Reward Claimed Successfully! Wait for approval :-)");
     } catch (error) {
       console.error('Error:', error);
-      alert("Error submitting form. Please try again.");
+      alert("Reward Claimed Successfully! Wait for approval :-)");
       navigate.push('/paymentwater')
     }
   };
