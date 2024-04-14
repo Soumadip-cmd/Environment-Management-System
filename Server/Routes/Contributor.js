@@ -45,5 +45,7 @@ router.post('/contributor', LeaveApplication.single("user_docx"), async (req, re
         res.status(500).json({ error: 'Failed to add new reward claim member' });
     }
 });
-
+router.get('/contributor',async (req, res)=>{
+    
+})
 module.exports = router;
