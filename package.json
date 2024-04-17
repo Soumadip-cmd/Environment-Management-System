@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "evs": "concurrently \"npm run start\" \"nodemon Server/index.js\""
+    "evs": "concurrently \"npm run start\" \"node Server/index.js\""
   },
   "eslintConfig": {
     "extends": [
