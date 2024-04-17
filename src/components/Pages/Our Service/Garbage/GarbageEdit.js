@@ -1,37 +1,64 @@
 import React, { useContext, useRef } from "react";
 import CameraContext from "./context/CameraContext";
 
-const GarbageEdit = () => {
-  const refcls = useRef(null);
-  const refcamera = useRef(null);
+const CameraGarbage = (props) => {
+  // class1-->Stand htmlFor position the camera button using className
+  // modal-title--> take titlte
+  // related-text-->gives a content brief description about the topic
+  // photo_height,photo_width--> set the  acccepted imaGE height width
+  // img_src--> is the default garbageimg place on the camera modal
+  // modal-type---> stand htmlFor  target modal
+  // specific_img--->this is used to select a particular div htmlFor a particular modal(by not changing all div){you can say as target}(imp to add)
+  const {
+    class1,
+    modal_title,
+    related_text,
+    photo_height,
+    photo_width,
+    img_src,
+    modal_type,
+    specific_img,
+  } = props;
+
   const { garbageimg, setGarbageimg } = useContext(CameraContext);
-  const handleUpdate = () => {
-    refcls.current.click();
+
+  const refclose = useRef(null);
+  const refcamera = useRef(null);
+  const handleUpload = () => {
+    refclose.current.click();
+    document.getElementById(specific_img).value = "";
+
+    // setGarbageimg({...garbageimg,[event.target.id]:[event.target.value]})
+    // setGarbageimg('')
   };
-  var image_body = {
-    height: '1536px',
-    width: '500px',
-    borderRadius: "5px",
+
+  const cameraclick = () => {
+    refcamera.current.click();
   };
   const changing = (event) => {
     setGarbageimg(event.target.files[0]);
   };
-  const cameraclick=()=>{
-    refcamera.current.click()
-  }
 
+  var image_body = {
+    height: { photo_height },
+    width: { photo_width },
+    borderRadius: "5px",
+  };
   return (
     <>
-      <span className="float-end " style={{ cursor: "pointer" }}>
+      {/* camera garbageimg */}
+      <span
+        className={`profile-file-upload p-1 mx-2 perfect ${class1} my-0 float-end`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"
           height="22"
           fill="currentColor"
-          className="bi bi-pencil-square"
+          class="bi bi-pencil-square"
           viewBox="0 0 16 16"
           data-bs-toggle="modal"
-          data-bs-target="#garbageEdit"
+          data-bs-target={`#${modal_type}`}
         >
           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
           <path
@@ -40,45 +67,52 @@ const GarbageEdit = () => {
           />
         </svg>
       </span>
+      {/* camera open modal */}
 
       <div
-        className="modal fade"
-        id="garbageEdit"
+        className="modal fade "
+        id={modal_type}
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+        style={{ color: "black" }}
       >
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
+                {modal_title}
               </h5>
               <button
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                ref={refclose}
               ></button>
             </div>
             <div className="modal-body">
-              <div class="mb-3">
-                <label
-                  htmlFor="exampleInputEmail1"
-                  className="form-label text-capitalize"
-                >
-                  <span className="from-head">
-                    Write Something about your post
-                  </span>
-                </label>
-                <textarea
-                  className="form-control"
-                  placeholder="Write Your Problem in Brief"
-                  cols={30}
-                  rows={4}
-                ></textarea>
-              </div>
-              <div className="mb-3" style={{ position: "relative" }}>
+              <div className="mb-3">
+                <h6 className="mb-3">
+                  <i style={{ color: "brown" }}>{related_text}</i>
+                </h6>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleInputEmail1"
+                    className="form-label text-capitalize"
+                  >
+                    <span className="from-head">
+                      Write Something about your post
+                    </span>
+                  </label>
+                  <textarea
+                    className="form-control"
+                    placeholder="Write Your Problem in Brief"
+                    cols={30}
+                    rows={5}
+                  ></textarea>
+                </div>
+                <div className="mb-3" style={{ position: "relative" }}>
                   <label htmlFor="location" className="form-label">
                     <span className="from-head">Your Exact Loaction</span>
                   </label>
@@ -123,14 +157,14 @@ const GarbageEdit = () => {
                     className="container mb-3 d-flex justify-content-center"
                     alt="garbageimg"
                     style={image_body}
-                    // src={img_src}
+                    src={img_src}
                     id="view0"
                   />
                 )}
               </div>
 
               <div className="mb-3">
-                <label  className="form-label">
+                <label htmlFor={specific_img} className="form-label">
                   <span className="from-head">
                     Upload Photo as jpeg/png File:
                   </span>
@@ -139,7 +173,7 @@ const GarbageEdit = () => {
                   className="form-control"
                   accept=".png, .jpeg, .jpg"
                   type="file"
-                  // id={specific_img}
+                  id={specific_img}
                   onChange={changing}
                 />
               </div>
@@ -154,12 +188,12 @@ const GarbageEdit = () => {
                   type="file"
                   id="formFile1"
                   onChange={changing}
-                  capture="environment" style={{display:'none'}}
+                  capture="environment"
+                  style={{ display: "none" }}
                 />
                 <span
                   className={`profile-file-upload p-1 mx-2 perfect extra-camera  my-0`}
                   onClick={cameraclick}
-
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -175,28 +209,29 @@ const GarbageEdit = () => {
                 </span>
               </div>
             </div>
-            <div className="modal-footer">
+
+            <div className="modal-footer d-flex justify-content-center ">
               <button
                 type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-                ref={refcls}
+                className="btn btn-danger "
+                onClick={handleUpload}
               >
-                Close
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleUpdate}
-              >
-                Save changes
+                UpLoad
               </button>
             </div>
           </div>
-        
+        </div>
       </div>
     </>
   );
 };
 
-export default GarbageEdit;
+CameraGarbage.defaultProps = {
+  modal_title: "Modal Title",
+  related_text: "Choose Your Desire Photo",
+  photo_height: "140px",
+  photo_width: "150px",
+  // specific_img:'modalimg'
+};
+
+export default CameraGarbage;

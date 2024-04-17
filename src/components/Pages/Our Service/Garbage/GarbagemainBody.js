@@ -65,7 +65,15 @@ const GarbagemainBody = () => {
                     alt="profile"
                   />
                 )}
-                <GarbageEdit/>
+                <GarbageEdit  class1=""
+              photo_height="500px"
+              photo_width="1536px"
+              img_src="https://source.unsplash.com/random/1536x500?/garbage"
+              modal_type="garbage_modal"
+              modal_title="Upload Garbage Photo"
+              specific_img="modal3"
+              related_text="Please Fill-Up full form for getting REWARDS--"/>
+                
                 <span
                   className="mx-0 pt-1 title-extra"
                   style={{ color: "brown" }}
